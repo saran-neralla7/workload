@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gvp-maroon: #800000;
+  --gvp-navy: #0B2545;
+  --gvp-gold: #DAA520;
+  --gvp-light-bg: #F8F9FA;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #1e293b;
+}
+
+h1, h2, .font-heading {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+}
+
+.bg-gvp-maroon { background-color: var(--gvp-maroon); }
+.text-gvp-maroon { color: var(--gvp-maroon); }
+.border-gvp-maroon { border-color: var(--gvp-maroon); }
+
+.bg-gvp-navy { background-color: var(--gvp-navy); }
+.text-gvp-navy { color: var(--gvp-navy); }
+.border-gvp-navy { border-color: var(--gvp-navy); }
+
+.bg-gvp-gold { background-color: var(--gvp-gold); }
+.text-gvp-gold { color: var(--gvp-gold); }
+.border-gvp-gold { border-color: var(--gvp-gold); }
+
+/* Print Specific Styles for Professional Executive College Report */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm 10mm 10mm 10mm;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: 'Times New Roman', serif !important;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-block {
+    display: block !important;
+  }
+
+  /* Excel/Word-style solid table borders for print */
+  table.print-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 2px solid #000000 !important;
+  }
+
+  table.print-table th {
+    background-color: #0B2545 !important;
+    color: white !important;
+    border: 1.5px solid #000000 !important;
+    padding: 6px 8px !important;
+    font-size: 11pt !important;
+    text-align: center !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  table.print-table td {
+    border: 1px solid #000000 !important;
+    padding: 5px 8px !important;
+    font-size: 10.5pt !important;
+    color: #000000 !important;
+  }
+
+  table.print-table tr:nth-child(even) {
+    background-color: #f3f4f6 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

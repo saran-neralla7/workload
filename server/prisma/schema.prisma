@@ -1,0 +1,44 @@
+// Simplified Prisma Schema for GVPIHLR Faculty Workload System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model TimetableUpload {
+  id           String           @id @default(uuid())
+  filename     String
+  uploadedAt   DateTime         @default(now())
+  isActive     Boolean          @default(true)
+  assignments  WorkloadAssignment[]
+}
+
+model Faculty {
+  id           String           @id @default(uuid())
+  shortName    String           @unique
+  fullName     String
+  department   String?          @default("General")
+  assignments  WorkloadAssignment[]
+}
+
+model WorkloadAssignment {
+  id            String          @id @default(uuid())
+  uploadId      String
+  upload        TimetableUpload @relation(fields: [uploadId], references: [id], onDelete: Cascade)
+  
+  facultyId     String
+  faculty       Faculty         @relation(fields: [facultyId], references: [id], onDelete: Cascade)
+
+  branch        String          // Section / Branch e.g. CSE-1
+  subjectName   String          // Full subject name
+  subjectShort  String          // Subject short code e.g. CAL & LA
+  roomNumber    String?
+  
+  sessionType   String          // Theory, Tutorial, Lab
+  hours         Float           // Contributed weekly hours for this session
+  coFacultyList String?         // Comma separated list of co-teachers
+}

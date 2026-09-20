@@ -1,0 +1,4273 @@
+[
+  {
+    "id": "VBR",
+    "shortName": "VBR",
+    "fullName": "Mr. V Bhaskar Rao",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "GS"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "GS"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "ChVR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "GS"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "CHVR, Dr. VA, Dr. DSK"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "ChVR"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "PM"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "ChVR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "ChVR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "ChVR, Dr. ISR, Dr. BVS"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. ISR, Dr. BVSAK, Dr. ChVR"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, PKM, ChVR"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "BDS"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VA, Dr. DSK, Dr. ChVR"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "ECE-1",
+      "ECE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 36,
+    "overallTheoryHours": 11,
+    "overallTutorialHours": 0,
+    "overallLabHours": 25,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BhP",
+    "shortName": "BhP",
+    "fullName": "Dr. Bh. Padma",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Fundamentals of Web Designing and User Interface",
+        "subjectShort": "FWD",
+        "hours": 3,
+        "coFacultyList": "Dr. KR"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. DC, MA"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "MA, Dr. DC, Dr. KR"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "Dr. KR"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. DC, MA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DC, MA, Dr. KR"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KR",
+    "shortName": "KR",
+    "fullName": "Dr. K Rohini",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Fundamentals of Web Designing and User Interface",
+        "subjectShort": "FWD",
+        "hours": 3,
+        "coFacultyList": "Dr. BhP"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BhP, Dr. DC, MA"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "MA, Dr. DC, Dr. BhP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "Dr. BhP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BhP, Dr. DC, MA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DC, MA, Dr. BhP"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DC",
+    "shortName": "DC",
+    "fullName": "Dr. D Chandravathi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. BhP, MA"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Fundamentals of Web Designing and User Interface",
+        "subjectShort": "FWD",
+        "hours": 3,
+        "coFacultyList": "MA"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "MA, Dr. KR, Dr. BhP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. BhP, MA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "MA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "MA, Dr. KR, Dr. BhP"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MA",
+    "shortName": "MA",
+    "fullName": "Mr. M Anil",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. BhP, Dr. DC"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Fundamentals of Web Designing and User Interface",
+        "subjectShort": "FWD",
+        "hours": 3,
+        "coFacultyList": "Dr. DC"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Web Designing and User Interface Lab",
+        "subjectShort": "FWD LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DC, Dr. KR, Dr. BhP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KR, Dr. BhP, Dr. DC"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "Dr. DC"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DC, Dr. KR, Dr. BhP"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "VVVSN",
+    "shortName": "VVVSN",
+    "fullName": "Mr. VVS Satyanarayana",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. BRB, PSSA, Dr. BN"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BRB, PSSA, Dr. BN"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHR, NVSK, Dr. RP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHR, NVSK, Dr. RP"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHSL, Dr. RP, NVSK"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHSL, Dr. RP, NVSK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 21,
+    "overallTheoryHours": 9,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ISR",
+    "shortName": "ISR",
+    "fullName": "Dr. I Srinivas Rao",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "ChVR, VBR, Dr. BVS"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. DBVJ, PKD, Dr. ARS"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. BVSAK"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Digital Logic Design",
+        "subjectShort": "DLD",
+        "hours": 3,
+        "coFacultyList": "Dr. ARS"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BVSAK, Dr. ChVR, VBR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. ARS, Dr. DBVJ, PKD"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. ARS"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2",
+      "EEE"
+    ],
+    "overallWorkload": 20,
+    "overallTheoryHours": 7,
+    "overallTutorialHours": 0,
+    "overallLabHours": 13,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DSK",
+    "shortName": "DSK",
+    "fullName": "Dr. D Santhosh Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. VSJ, KAR, PSSA"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VSJ, KAR, PSSA"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. VA"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VA, Dr. VBR, Dr. ChVR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "VBR, CHVR, Dr. VA"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. VA"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. VA"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CIVIL",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1"
+    ],
+    "overallWorkload": 19,
+    "overallTheoryHours": 5,
+    "overallTutorialHours": 0,
+    "overallLabHours": 14,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ChVR",
+    "shortName": "ChVR",
+    "fullName": "Mr. Ch Venkat Rao",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "VBR, Dr. ISR, Dr. BVS"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, PKM, VBR"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "Fundamentals of Electrical and Electronics Engineering",
+        "subjectShort": "FEEE",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Electrical and Electronics Engineering Lab",
+        "subjectShort": "FEEE LAB",
+        "hours": 1,
+        "coFacultyList": "Mr. MVPL"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VA, Dr. DSK, Dr. VBR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. ISR, Dr. BVSAK, VBR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "VBR, Dr. VA, Dr. DSK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "ECE-1",
+      "ECE-2",
+      "EEE",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 31,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 25,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MBK",
+    "shortName": "MBK",
+    "fullName": "Dr. M Bhaskar Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. MVPL"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MVPL, TAJ, PKM"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MVPL"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Elements of Mechanical Engineering",
+        "subjectShort": "EME",
+        "hours": 3,
+        "coFacultyList": "Dr. AS"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. AS, YPR, KMK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Elements of Mechanical Engineering Lab",
+        "subjectShort": "EME LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. AS, YPR, Dr. BVSAK"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. MVPL"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, PKM, MVPL"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1",
+      "CSE-2",
+      "ECE-3",
+      "EEE",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 5,
+    "overallTutorialHours": 0,
+    "overallLabHours": 17,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "CHVVDP",
+    "shortName": "CHVVDP",
+    "fullName": "Mr.CH VVD Prasad",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Data Science / Principles of Cyber Security",
+        "subjectShort": "FDS / CSP",
+        "hours": 3,
+        "coFacultyList": "MBS"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Data Science / Cyber Security Principles LAB",
+        "subjectShort": "FDS / CSP LAB",
+        "hours": 4,
+        "coFacultyList": "MBS"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBS, VS, MN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "Dr. MN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MN, Dr. MBS, VS"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 18,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KVP",
+    "shortName": "KVP",
+    "fullName": "Dr. KV Padmavathi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MRR, Dr. BSK, Dr. RN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. RN, Dr. PSR, Dr. SA"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Chemistry of Materials",
+        "subjectShort": "COM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KVNL, Dr. MRR, Dr. BSK"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 15,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KAR",
+    "shortName": "KAR",
+    "fullName": "Mr. K AyyaRaju",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. VSJ, Dr. DSK, PSSA"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VSJ, Dr. DSK, PSSA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. NSSVRR, Dr. PVR, Dr. CHSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. NSSVRR, Dr. PVR, Dr. CHSL"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-2",
+      "CSE-1"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PSSA",
+    "shortName": "PSSA",
+    "fullName": "Mr. PSS Appalacharyulu",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. VSJ, Dr. DSK, KAR"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VSJ, Dr. DSK, KAR"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. BRB, Dr. BN, VVVSN"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BRB, Dr. BN, VVVSN"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DAK",
+    "shortName": "DAK",
+    "fullName": "Mr. D Arun Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "GSL"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "KS, SLA, GSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning",
+        "subjectShort": "FAI & ML",
+        "hours": 3,
+        "coFacultyList": "GSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "SLA, KS, GSL"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Ms. GSL, Ms. KS, Ms. SLA"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "Ms. GSL, Ms. KS, Ms. SLA"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "GSL",
+    "shortName": "GSL",
+    "fullName": "Ms. G Sathee Laxmi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "DAK"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "KS, SLA, DAK"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning",
+        "subjectShort": "FAI & ML",
+        "hours": 3,
+        "coFacultyList": "DAK"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "SLA, KS, DAK"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Mr. DAK, Ms. KS, Ms. SLA"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "Mr. DAK, Ms. KS, Ms. SLA"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "TAJ",
+    "shortName": "TAJ",
+    "fullName": "Ms. Taj",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MVPL, Dr. MBK, PKM"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "PKM"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "PKM, MVPL, MBK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "PKM"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "PKM, ChVR, VBR"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1",
+      "CSE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 2,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PKM",
+    "shortName": "PKM",
+    "fullName": "Ms. P KiranMayi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MVPL, Dr. MBK, TAJ"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "TAJ"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, MVPL, MBK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "TAJ"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, ChVR, VBR"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1",
+      "CSE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 2,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KS",
+    "shortName": "KS",
+    "fullName": "Ms. K Swathi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "SLA"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "SLA, DAK, GSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning",
+        "subjectShort": "FAI & ML",
+        "hours": 3,
+        "coFacultyList": "SLA"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "SLA, DAK, GSL"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Mr. DAK, Ms. GSL, Ms. SLA"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "Ms. GSL, Mr. DAK, Ms. SLA"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SLA",
+    "shortName": "SLA",
+    "fullName": "Ms. S Laxmi Aparna",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "KS"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "KS, DAK, GSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning",
+        "subjectShort": "FAI & ML",
+        "hours": 3,
+        "coFacultyList": "KS"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "KS, DAK, GSL"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Mr. DAK, Ms. GSL, Ms. KS"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Artificial Intelligence & Machine Learning Lab",
+        "subjectShort": "FAI & ML LAB",
+        "hours": 4,
+        "coFacultyList": "Ms. GSL, Mr. DAK, Ms. KS"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 22,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 16,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "NVSK",
+    "shortName": "NVSK",
+    "fullName": "Mr. NV Siva Krishna",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHR, VVVSN, Dr. RP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHR, VVVSN, Dr. RP"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHSL, Dr. RP, VVVSN"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHSL, Dr. RP, VVVSN"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "RP",
+    "shortName": "RP",
+    "fullName": "Dr. R Praveena",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHR, NVSK, VVVSN"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHR, NVSK, VVVSN"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. CHSL, VVVSN, NVSK"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. CHSL, VVVSN, NVSK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "CHSL",
+    "shortName": "CHSL",
+    "fullName": "Dr. Ch S Lakshmi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "KAR, Dr. NSSVRR, Dr. PVR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "KAR, Dr. NSSVRR, Dr. PVR"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. RP, VVVSN, NVSK"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. RP, VVVSN, NVSK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-2"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BSK",
+    "shortName": "BSK",
+    "fullName": "Dr. B Santhosh Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MRR, Dr. KVP, Dr. RN"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "Energy Systems and Advanced Materials",
+        "subjectShort": "ESAM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. KVL"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KVP, Dr. KVNL, Dr. MRR"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "SA"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-3",
+      "EEE",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 11,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "VA",
+    "shortName": "VA",
+    "fullName": "Dr. V Adinarayana",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. DSK"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DSK, Dr. VBR, Dr. ChVR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "VBR, CHVR, Dr. DSK"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. DSK"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. DSK"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CIVIL",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2"
+    ],
+    "overallWorkload": 12,
+    "overallTheoryHours": 2,
+    "overallTutorialHours": 0,
+    "overallLabHours": 10,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MRR",
+    "shortName": "MRR",
+    "fullName": "Dr. M Rama Rajeswari",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Energy Systems and Advanced Materials",
+        "subjectShort": "ESAM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BSK, Dr. KVP, Dr. RN"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KVP, Dr. KVNL, Dr. BSK"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. KVNL"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "ECE-1",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 12,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 9,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "GSK",
+    "shortName": "GSK",
+    "fullName": "Dr. G Santosh Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. BV"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. DM"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. BV"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CIVIL",
+      "ECE-1",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 12,
+    "overallTheoryHours": 11,
+    "overallTutorialHours": 0,
+    "overallLabHours": 1,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MN",
+    "shortName": "MN",
+    "fullName": "Dr. M. Neelima",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "CHVVDP"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "CHVVDP, Dr. MBS, VS"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "Digital Logic Design",
+        "subjectShort": "DLD",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "KJR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBS, VS, CHVVDP"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2",
+      "ECE-3"
+    ],
+    "overallWorkload": 16,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 10,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MBS",
+    "shortName": "MBS",
+    "fullName": "Dr. M Bhanu Sridhar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "VS"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "VS, CHVVDP, MN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "CHVVDP, Dr. MN, VS"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Foundations of Data Science / Principles of Cyber Security",
+        "subjectShort": "FDS / CSP",
+        "hours": 3,
+        "coFacultyList": "CHVVDP"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Foundations of Data Science / Cyber Security Principles LAB",
+        "subjectShort": "FDS / CSP LAB",
+        "hours": 4,
+        "coFacultyList": "CHVVDP"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 18,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "VS",
+    "shortName": "VS",
+    "fullName": "Mrs. V Sridevi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "Dr. MBS"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBS, CHVVDP, MN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "CHVVDP, Dr. MN, Dr. MBS"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 11,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "RN",
+    "shortName": "RN",
+    "fullName": "Dr. Rani Nanda",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MRR, Dr. BSK, Dr. KVP"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Energy Systems and Advanced Materials",
+        "subjectShort": "ESAM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. PSR, Dr. SA, Dr. KVP"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 11,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "FAC-2",
+    "shortName": "FAC-2",
+    "fullName": "Faculty-2",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "3D Design and Animation",
+        "subjectShort": "3DDA",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "3D Design and Animation",
+        "subjectShort": "3DDA",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "3D Design and Animation",
+        "subjectShort": "3DDA",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "3D Design and Animation",
+        "subjectShort": "3DDA",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "3D Design and Animation",
+        "subjectShort": "3DDA",
+        "hours": 2,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 10,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 10,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ASL",
+    "shortName": "ASL",
+    "fullName": "Dr. A Suseelatha",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. KVSS"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. TPK"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. BB"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. KVSS"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BB",
+    "shortName": "BB",
+    "fullName": "Dr. B Bharathi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. TPK"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. SAK"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. TPK"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. ASL"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2",
+      "ECE-3"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "TPK",
+    "shortName": "TPK",
+    "fullName": "Dr. T Poornakantha",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. BB"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. ASL"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. BB"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. NGB"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. SAK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "MVPL",
+    "shortName": "MVPL",
+    "fullName": "Dr. MV Pankaj Lahari",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. MBK"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBK, TAJ, PKM"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MBK"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. MBK"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "TAJ, PKM, MBK"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Fundamentals of Electrical and Electronics Engineering Lab",
+        "subjectShort": "FEEE LAB",
+        "hours": 1,
+        "coFacultyList": "ChVR"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1",
+      "CSE-2",
+      "ECE-3",
+      "EEE"
+    ],
+    "overallWorkload": 14,
+    "overallTheoryHours": 2,
+    "overallTutorialHours": 0,
+    "overallLabHours": 12,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SAK",
+    "shortName": "SAK",
+    "fullName": "Dr. S Ashok Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. BB"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. TPK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. KVSS"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 9,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "NGB",
+    "shortName": "NGB",
+    "fullName": "Dr. N Giribabu",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. CHAN"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. TPK"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. CHAN"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. SSAS"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. CHAN"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "ECE-1",
+      "ECE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "CHAN",
+    "shortName": "CHAN",
+    "fullName": "Dr. Ch Appala Naidu",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. NGB"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. NGB"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. ChVS"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. NGB"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "ECE-1",
+      "ECE-2",
+      "EEE",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ChVS",
+    "shortName": "ChVS",
+    "fullName": "Dr. Ch V Sreedhar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. SSAS"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. CHAN"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "CIVIL",
+      "ECE-1",
+      "ECE-2",
+      "ECE-3"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 3,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "NVL",
+    "shortName": "NVL",
+    "fullName": "Dr. N Vijaya Lakshmi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VVLUR, Dr. ChA, Dr. BMF"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. JRR, Dr. IR, Dr. SVR"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. SVR"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-1",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 9,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DM",
+    "shortName": "DM",
+    "fullName": "Dr. D Manasa",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. BV"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. GSK"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "Surveying and Geomatics",
+        "subjectShort": "S&G",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-2",
+      "EEE",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 9,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "AS",
+    "shortName": "AS",
+    "fullName": "Dr. Anand Solanki",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Elements of Mechanical Engineering",
+        "subjectShort": "EME",
+        "hours": 3,
+        "coFacultyList": "Dr. MBK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBK, YPR, KMK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Elements of Mechanical Engineering Lab",
+        "subjectShort": "EME LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MBK, YPR, Dr. BVSAK"
+      }
+    ],
+    "assignedSections": [
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "GS",
+    "shortName": "GS",
+    "fullName": "Mrs. G Sravani",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "PM"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "VBR"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1",
+      "CSE(AI&ML)-2",
+      "CSE-1",
+      "CSE-2"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 8,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BV",
+    "shortName": "BV",
+    "fullName": "Dr. B Vidya",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. GSK"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": "Dr. DM"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "Sustainable Engineering",
+        "subjectShort": "SUS. ENGG.",
+        "hours": 2,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. GSK"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Surveying and Geomatics Lab",
+        "subjectShort": "S&G LAB",
+        "hours": 1,
+        "coFacultyList": "PM"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-1",
+      "ECE-2",
+      "ECE-3"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 0,
+    "overallLabHours": 2,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "VVLUR",
+    "shortName": "VVLUR",
+    "fullName": "Dr.VVL Usha Ramani",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. ChA, Dr. NVL, Dr. BMF"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BMF, Dr. ChA, DA"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ChA",
+    "shortName": "ChA",
+    "fullName": "Dr.Ch Alekya",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VVLUR, Dr. NVL, Dr. BMF"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BMF, Dr. VVLUR, DA"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ARS",
+    "shortName": "ARS",
+    "fullName": "Dr. A Ravi Shankar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. DBVJ, PKD, Dr. ISR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "Digital Logic Design",
+        "subjectShort": "DLD",
+        "hours": 3,
+        "coFacultyList": "Dr. ISR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. ISR, Dr. DBVJ, PKD"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. ISR"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2",
+      "EEE"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 5,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BMF",
+    "shortName": "BMF",
+    "fullName": "Dr. BM Florence",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VVLUR, Dr. ChA, Dr. NVL"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. VVLUR, Dr. ChA, DA"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 8,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PSR",
+    "shortName": "PSR",
+    "fullName": "Dr. P Srinivas Rao",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. RN, Dr. SA, Dr. KVP"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "Chemistry of Materials",
+        "subjectShort": "COM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. SA"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-2"
+    ],
+    "overallWorkload": 8,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 5,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KVNL",
+    "shortName": "KVNL",
+    "fullName": "Dr. KV NagaLakshmi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. KVP, Dr. MRR, Dr. BSK"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "Physical and Analytical Chemistry",
+        "subjectShort": "PAC",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. MRR"
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. BSK"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "ECE-3",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 10,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 7,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KVSS",
+    "shortName": "KVSS",
+    "fullName": "Dr. KVS Sarma",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. ASL"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. ASL"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. SAK"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)",
+      "CSE-1",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 1,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "VSJ",
+    "shortName": "VSJ",
+    "fullName": "Dr.V Siva Jahnavy",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. DSK, KAR, PSSA"
+      },
+      {
+        "branch": "CSE-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. DSK, KAR, PSSA"
+      }
+    ],
+    "assignedSections": [
+      "CSE-1"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BRB",
+    "shortName": "BRB",
+    "fullName": "Dr. B Rajesh Babu",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "PSSA, Dr. BN, VVVSN"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "PSSA, Dr. BN, VVVSN"
+      }
+    ],
+    "assignedSections": [
+      "CSE-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BN",
+    "shortName": "BN",
+    "fullName": "Dr. B Nagarjun",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "Dr. BRB, PSSA, VVVSN"
+      },
+      {
+        "branch": "CSE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BRB, PSSA, VVVSN"
+      }
+    ],
+    "assignedSections": [
+      "CSE-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "CHR",
+    "shortName": "CHR",
+    "fullName": "Dr. Ch Rajesh",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "NVSK, VVVSN, Dr. RP"
+      },
+      {
+        "branch": "CSE(AI&ML)-1",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "NVSK, VVVSN, Dr. RP"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-1"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "NSSVRR",
+    "shortName": "NSSVRR",
+    "fullName": "Dr. NSSV Raja Rao",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "KAR, Dr. PVR, Dr. CHSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "KAR, Dr. PVR, Dr. CHSL"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PVR",
+    "shortName": "PVR",
+    "fullName": "Dr. PV Rajeswari",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Theory",
+        "subjectName": "Engineering Physics",
+        "subjectShort": "ENGG.PHY",
+        "hours": 3,
+        "coFacultyList": "KAR, Dr. NSSVRR, Dr. CHSL"
+      },
+      {
+        "branch": "CSE(AI&ML)-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Physics lab",
+        "subjectShort": "ENGG. PHY. LAB",
+        "hours": 4,
+        "coFacultyList": "KAR, Dr. NSSVRR, Dr. CHSL"
+      }
+    ],
+    "assignedSections": [
+      "CSE(AI&ML)-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SVM",
+    "shortName": "SVM",
+    "fullName": "Mr. S Vinod Manikantha",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "DMVP"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "DMVP"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DMVP",
+    "shortName": "DMVP",
+    "fullName": "Mrs. DMV Priya",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "SVM"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "SVM"
+      }
+    ],
+    "assignedSections": [
+      "CSE (CS & DS)"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SSAS",
+    "shortName": "SSAS",
+    "fullName": "Dr. SS Ayyappa Sastri",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": "Dr. ChVS"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Tutorial",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 1,
+        "coFacultyList": "Dr. NGB"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 6,
+    "overallTutorialHours": 1,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DBVJ",
+    "shortName": "DBVJ",
+    "fullName": "Dr. DBV Jagannadham",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Digital Logic Design",
+        "subjectShort": "DLD",
+        "hours": 3,
+        "coFacultyList": "PKD"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "PKD, Dr. ARS, Dr. ISR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. ARS, Dr. ISR, PKD"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PKD",
+    "shortName": "PKD",
+    "fullName": "PK DAS",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-1",
+        "sessionType": "Theory",
+        "subjectName": "Digital Logic Design",
+        "subjectShort": "DLD",
+        "hours": 3,
+        "coFacultyList": "Dr. DBVJ"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. DBVJ, Dr. ARS, Dr. ISR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. ARS, Dr. ISR, Dr. DBVJ"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2"
+    ],
+    "overallWorkload": 7,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BVSAK",
+    "shortName": "BVSAK",
+    "fullName": "Dr. BVS Arun Kumar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Theory",
+        "subjectName": "AI Tools and Applications",
+        "subjectShort": "AITA",
+        "hours": 1,
+        "coFacultyList": "Dr. ISR"
+      },
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. ISR, Dr. ChVR, VBR"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Elements of Mechanical Engineering Lab",
+        "subjectShort": "EME LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MBK, Dr. AS, YPR"
+      },
+      {
+        "branch": "ECE-1",
+        "sessionType": "Lab",
+        "subjectName": "AI Tools and Applications Lab",
+        "subjectShort": "AITA LAB",
+        "hours": 4,
+        "coFacultyList": "ChVR, VBR, Dr. ISR"
+      }
+    ],
+    "assignedSections": [
+      "ECE-1",
+      "ECE-2",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 11,
+    "overallTheoryHours": 1,
+    "overallTutorialHours": 0,
+    "overallLabHours": 10,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "DA",
+    "shortName": "DA",
+    "fullName": "Ms. D Amritha",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. BMF, Dr. VVLUR, Dr. ChA"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "ChS"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "ChS"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "ECE-2",
+      "EEE"
+    ],
+    "overallWorkload": 6,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "JRR",
+    "shortName": "JRR",
+    "fullName": "Dr. J RajaRatnam",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. IR"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. IR, Dr. NVL, Dr. SVR"
+      }
+    ],
+    "assignedSections": [
+      "ECE-3",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 6,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SP",
+    "shortName": "SP",
+    "fullName": "Dr. S Padma",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 2,
+        "coFacultyList": "CA"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "Principles of Chemical Engineering",
+        "subjectShort": "PCE",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Principles of Chemical Engineering",
+        "subjectShort": "PCE LAB",
+        "hours": 1,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "ECE-3"
+    ],
+    "overallWorkload": 6,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 3,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "IR",
+    "shortName": "IR",
+    "fullName": "Dr. I Rajasekhar",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. JRR"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. JRR, Dr. NVL, Dr. SVR"
+      }
+    ],
+    "assignedSections": [
+      "ECE-3",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 6,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "YPR",
+    "shortName": "YPR",
+    "fullName": "Mr. Y Prasad Reddy",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBK, Dr. AS, KMK"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Elements of Mechanical Engineering Lab",
+        "subjectShort": "EME LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MBK, Dr. AS, Dr. BVSAK"
+      }
+    ],
+    "assignedSections": [
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 6,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PM",
+    "shortName": "PM",
+    "fullName": "Mr. P Manikanta",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CSE-2",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "GS"
+      },
+      {
+        "branch": "CSE (CS & DS)",
+        "sessionType": "Theory",
+        "subjectName": "Environmental Studies",
+        "subjectShort": "ENV. STD.",
+        "hours": 2,
+        "coFacultyList": "VBR"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Surveying and Geomatics Lab",
+        "subjectShort": "S&G LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. BV"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "CSE (CS & DS)",
+      "CSE-2"
+    ],
+    "overallWorkload": 5,
+    "overallTheoryHours": 4,
+    "overallTutorialHours": 0,
+    "overallLabHours": 1,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SA",
+    "shortName": "SA",
+    "fullName": "Mr. S Ashok",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-2",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. RN, Dr. PSR, Dr. KVP"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. PSR"
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "Energy Systems and Advanced Materials",
+        "subjectShort": "ESAM",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Engineering Chemistry Lab",
+        "subjectShort": "ENGG. CHEM LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. BSK"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "ECE-2",
+      "EEE"
+    ],
+    "overallWorkload": 9,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 6,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "CA",
+    "shortName": "CA",
+    "fullName": "Ms. C Aparna",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-3",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": ""
+      },
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. SP"
+      }
+    ],
+    "assignedSections": [
+      "ECE-3"
+    ],
+    "overallWorkload": 5,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 2,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KJR",
+    "shortName": "KJR",
+    "fullName": "Ms. K Jhansi Rani",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "ECE-3",
+        "sessionType": "Lab",
+        "subjectName": "Digital Logic Design Lab",
+        "subjectShort": "DLD LAB",
+        "hours": 2,
+        "coFacultyList": "Dr. MN"
+      },
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "PRSS"
+      }
+    ],
+    "assignedSections": [
+      "ECE-3",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 5,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 2,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "SVR",
+    "shortName": "SVR",
+    "fullName": "Dr. SV Ramana",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. JRR, Dr. IR, Dr. NVL"
+      },
+      {
+        "branch": "CIVIL",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "Dr. NVL"
+      }
+    ],
+    "assignedSections": [
+      "CIVIL",
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 5,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 5,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KMK",
+    "shortName": "KMK",
+    "fullName": "Smt. K Manikyakanthi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 4,
+        "coFacultyList": "Dr. MBK, Dr. AS, YPR"
+      }
+    ],
+    "assignedSections": [
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 4,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 4,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "PRSS",
+    "shortName": "PRSS",
+    "fullName": "Ms. PR Sri Satya",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "MECH & MECH-ROBOTICS",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": "KJR"
+      }
+    ],
+    "assignedSections": [
+      "MECH & MECH-ROBOTICS"
+    ],
+    "overallWorkload": 3,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "KLSP",
+    "shortName": "KLSP",
+    "fullName": "Dr. K L Sai Prasad",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "EEE",
+        "sessionType": "Theory",
+        "subjectName": "Calculus and Linear Algebra",
+        "subjectShort": "CAL & LA",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "EEE"
+    ],
+    "overallWorkload": 3,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BSS",
+    "shortName": "BSS",
+    "fullName": "Ms. B Divya Sati",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Theory",
+        "subjectName": "Problem solving using C",
+        "subjectShort": "PSUC",
+        "hours": 3,
+        "coFacultyList": ""
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL"
+    ],
+    "overallWorkload": 3,
+    "overallTheoryHours": 3,
+    "overallTutorialHours": 0,
+    "overallLabHours": 0,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "ChS",
+    "shortName": "ChS",
+    "fullName": "Ch. Sowjanya",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "EEE",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "DA"
+      },
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Essential English Lab",
+        "subjectShort": "ESS. ENG. LAB",
+        "hours": 1,
+        "coFacultyList": "DA"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL",
+      "EEE"
+    ],
+    "overallWorkload": 2,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 2,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  },
+  {
+    "id": "BDS",
+    "shortName": "BDS",
+    "fullName": "Ms. B Divya Sathi",
+    "department": "General",
+    "classes": [
+      {
+        "branch": "CHEMICAL",
+        "sessionType": "Lab",
+        "subjectName": "Problem solving using C lab",
+        "subjectShort": "PSUC LAB",
+        "hours": 1,
+        "coFacultyList": "VBR"
+      }
+    ],
+    "assignedSections": [
+      "CHEMICAL"
+    ],
+    "overallWorkload": 1,
+    "overallTheoryHours": 0,
+    "overallTutorialHours": 0,
+    "overallLabHours": 1,
+    "sectionWorkload": 0,
+    "sectionTheoryHours": 0,
+    "sectionTutorialHours": 0,
+    "sectionLabHours": 0
+  }
+]

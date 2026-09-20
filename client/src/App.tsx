@@ -24,9 +24,32 @@ import {
 import fullFacultyData from './full_faculty_data.json';
 import * as xlsx from 'xlsx';
 
+export const inferDepartment = (fac: any): string => {
+  if (fac.department && fac.department !== 'General' && fac.department !== 'Unassigned') {
+    return fac.department;
+  }
+  const allSubNames = fac.classes ? fac.classes.map((c: any) => `${c.subjectName} ${c.subjectShort}`).join(' ') : '';
+  const allBranches = fac.classes ? fac.classes.map((c: any) => c.branch).join(' ') : '';
+
+  if (/physics|engg\.phy|phy lab/i.test(allSubNames)) return 'Department of Physics';
+  if (/calculus|linear algebra|cal & la|math|m-1|probability|discrete/i.test(allSubNames)) return 'Department of Mathematics';
+  if (/environmental|env\. std|chemistry|engg chem/i.test(allSubNames)) return 'Department of Chemistry & Env Science';
+  if (/english|communication|soft skill|ethics/i.test(allSubNames)) return 'Department of Humanities & English';
+  
+  if (/cse|ai & ml|cs & ds|aita|psuc|fwd|3dda|comp\. lab/i.test(allBranches + ' ' + allSubNames)) return 'Computer Science & Engineering (CSE)';
+  if (/ece|vlsi|signals/i.test(allBranches + ' ' + allSubNames)) return 'Electronics & Comm. Engineering (ECE)';
+  if (/eee|electrical|power/i.test(allBranches + ' ' + allSubNames)) return 'Electrical & Electronics Engineering (EEE)';
+  if (/mech|cad|workshop/i.test(allBranches + ' ' + allSubNames)) return 'Mechanical Engineering (MECH)';
+  if (/civil|survey|structure/i.test(allBranches + ' ' + allSubNames)) return 'Civil Engineering (CIVIL)';
+  if (/chemical/i.test(allBranches + ' ' + allSubNames)) return 'Chemical Engineering (CHEMICAL)';
+
+  return 'Computer Science & Engineering (CSE)';
+};
+
 export default function App() {
   const [sections, setSections] = useState<string[]>([]);
   const [selectedSection, setSelectedSection] = useState<string>('ALL');
+  const [selectedDepartment, setSelectedDepartment] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [includeTutorials, setIncludeTutorials] = useState<boolean>(true);
   const [allFacultyData, setAllFacultyData] = useState<any[]>(fullFacultyData);
@@ -55,7 +78,7 @@ export default function App() {
   const [uploadMessage, setUploadMessage] = useState('');
 
   // Column Sorting States
-  const [sortField, setSortField] = useState<'sno' | 'faculty' | 'shortCode' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload'>('totalWorkload');
+  const [sortField, setSortField] = useState<'sno' | 'faculty' | 'shortCode' | 'assignedSections' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload'>('totalWorkload');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
   // Compute Co-Faculty Collaboration Matrix
@@ -256,7 +279,7 @@ export default function App() {
     return sectionMap;
   }, [allFacultyData]);
 
-  // Extract unique sections
+  // Extract unique sections & departments
   useEffect(() => {
     const secSet = new Set<string>();
     allFacultyData.forEach(f => {
@@ -266,10 +289,18 @@ export default function App() {
     setSections(['ALL', ...sortedSecs]);
   }, [allFacultyData]);
 
-  // Recalculate workload stats whenever section filter, tutorial toggle, search, dataset, or sorting changes
+  const availableDepartments = React.useMemo(() => {
+    const deptSet = new Set<string>();
+    allFacultyData.forEach(f => {
+      deptSet.add(f.department || inferDepartment(f));
+    });
+    return ['ALL', ...Array.from(deptSet).sort()];
+  }, [allFacultyData]);
+
+  // Recalculate workload stats whenever section/dept filter, tutorial toggle, search, dataset, or sorting changes
   useEffect(() => {
     calculateAndFilterWorkload();
-  }, [selectedSection, includeTutorials, searchQuery, allFacultyData, sortField, sortOrder]);
+  }, [selectedSection, selectedDepartment, includeTutorials, searchQuery, allFacultyData, sortField, sortOrder]);
 
   // Try fetching live data from NestJS API (port 4001)
   useEffect(() => {
@@ -290,17 +321,18 @@ export default function App() {
     }
   };
 
-  const handleSort = (field: 'sno' | 'faculty' | 'shortCode' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload') => {
+  const handleSort = (field: 'sno' | 'faculty' | 'shortCode' | 'assignedSections' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload') => {
     if (sortField === field) {
       setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'));
     } else {
       setSortField(field);
-      setSortOrder(field === 'faculty' || field === 'shortCode' ? 'asc' : 'desc');
+      setSortOrder(field === 'faculty' || field === 'shortCode' || field === 'assignedSections' ? 'asc' : 'desc');
     }
   };
 
   const calculateAndFilterWorkload = () => {
     let list = allFacultyData.map(f => {
+      const dept = f.department || inferDepartment(f);
       let secLoad = 0;
       let secTheory = 0;
       let secTut = 0;
@@ -381,6 +413,7 @@ export default function App() {
 
       return {
         ...f,
+        department: dept,
         calculatedOverallTotal: effectiveOverallTotal,
         calculatedSectionTotal: secLoad,
         overallTheoryHours: overallTheory,
@@ -397,6 +430,11 @@ export default function App() {
     // Filter list by selected Section
     if (selectedSection && selectedSection !== 'ALL') {
       list = list.filter(f => f.assignedSections.includes(selectedSection));
+    }
+
+    // Filter list by selected Department
+    if (selectedDepartment && selectedDepartment !== 'ALL') {
+      list = list.filter(f => f.department === selectedDepartment);
     }
 
     // Filter by Search Query
@@ -424,6 +462,10 @@ export default function App() {
         case 'shortCode':
           valA = a.shortName.toLowerCase();
           valB = b.shortName.toLowerCase();
+          break;
+        case 'assignedSections':
+          valA = (a.assignedSections || []).join(', ').toLowerCase();
+          valB = (b.assignedSections || []).join(', ').toLowerCase();
           break;
         case 'sectionLoad':
           valA = a.calculatedSectionTotal;
@@ -759,9 +801,9 @@ export default function App() {
           </div>
         </div>
 
-        {/* EXECUTIVE CONTROL BAR (Section Filter + Tutorial Checkbox + Search) */}
+        {/* EXECUTIVE CONTROL BAR (Section Filter + Department Filter + Tutorial Checkbox + Search) */}
         <div className="bg-white p-6 rounded-2xl border-2 border-slate-200 shadow-md space-y-4">
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-5 flex-wrap">
             
             {/* 1. Section Filter Dropdown */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -771,19 +813,37 @@ export default function App() {
               <select
                 value={selectedSection}
                 onChange={e => setSelectedSection(e.target.value)}
-                className="bg-slate-50 border-2 border-slate-300 text-slate-900 font-extrabold text-base rounded-xl p-3 min-w-[240px] focus:ring-amber-500 focus:border-amber-500 shadow-sm cursor-pointer"
+                className="bg-slate-50 border-2 border-slate-300 text-slate-900 font-extrabold text-sm rounded-xl p-3 min-w-[230px] focus:ring-amber-500 focus:border-amber-500 shadow-sm cursor-pointer"
               >
                 {sections.map(sec => (
                   <option key={sec} value={sec}>
-                    {sec === 'ALL' ? '🌐 All Program Sections (95 Faculty)' : `📘 Section: ${sec}`}
+                    {sec === 'ALL' ? `🌐 All Program Sections (${allFacultyData.length} Faculty)` : `📘 Section: ${sec}`}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* 2. Tutorial Hours Checkbox */}
+            {/* 2. Department Filter Dropdown */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <label className="text-xs font-black uppercase tracking-wider text-[#0B2545] flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-[#800000]" /> Department Filter:
+              </label>
+              <select
+                value={selectedDepartment}
+                onChange={e => setSelectedDepartment(e.target.value)}
+                className="bg-slate-50 border-2 border-slate-300 text-slate-900 font-extrabold text-sm rounded-xl p-3 min-w-[220px] focus:ring-amber-500 focus:border-amber-500 shadow-sm cursor-pointer"
+              >
+                {availableDepartments.map(dept => (
+                  <option key={dept} value={dept}>
+                    {dept === 'ALL' ? '🏢 All Academic Departments' : `🏛️ ${dept}`}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 3. Tutorial Hours Checkbox */}
             <div className="flex items-center">
-              <label className="inline-flex items-center gap-3 cursor-pointer bg-amber-50 hover:bg-amber-100/80 p-3 rounded-xl border-2 border-amber-300 transition-colors shadow-sm">
+              <label className="inline-flex items-center gap-3 cursor-pointer bg-amber-50 hover:bg-amber-100/80 p-2.5 rounded-xl border-2 border-amber-300 transition-colors shadow-sm">
                 <input
                   type="checkbox"
                   checked={includeTutorials}
@@ -791,30 +851,30 @@ export default function App() {
                   className="w-5 h-5 text-[#800000] rounded focus:ring-amber-500 cursor-pointer accent-[#800000]"
                 />
                 <div>
-                  <span className="text-sm font-extrabold text-[#0B2545] block leading-none">
+                  <span className="text-xs font-extrabold text-[#0B2545] block leading-none">
                     Include Tutorial Hours (+1 hr/wk)
                   </span>
-                  <span className="text-[11px] font-bold text-amber-800">
+                  <span className="text-[10px] font-bold text-amber-800">
                     {includeTutorials ? '✓ Tutorials included in total workload' : '✕ Tutorials excluded from total workload'}
                   </span>
                 </div>
               </label>
             </div>
 
-            {/* 3. Search Bar */}
-            <div className="relative w-full lg:w-80">
-              <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-3.5" />
+            {/* 4. Search Bar */}
+            <div className="relative w-full lg:w-72">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
               <input
                 type="text"
                 placeholder="Search faculty code or name..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 text-sm bg-slate-50 border-2 border-slate-300 rounded-xl focus:ring-amber-500 focus:border-amber-500 font-bold text-slate-900 shadow-sm"
+                className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border-2 border-slate-300 rounded-xl focus:ring-amber-500 focus:border-amber-500 font-bold text-slate-900 shadow-sm"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 p-1"
+                  className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 p-0.5"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -897,7 +957,21 @@ export default function App() {
                         )}
                       </div>
                     </th>
-                    {selectedSection !== 'ALL' && (
+                    {selectedSection === 'ALL' ? (
+                      <th
+                        onClick={() => handleSort('assignedSections')}
+                        className="border border-black p-3.5 text-center cursor-pointer hover:bg-slate-800 transition-colors"
+                      >
+                        <div className="flex items-center justify-center gap-1">
+                          <span>Assigned Sections</span>
+                          {sortField === 'assignedSections' ? (
+                            sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                          ) : (
+                            <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                          )}
+                        </div>
+                      </th>
+                    ) : (
                       <th
                         onClick={() => handleSort('sectionLoad')}
                         className="border border-black p-3.5 text-amber-300 bg-black text-center font-black cursor-pointer hover:bg-slate-900 transition-colors"
@@ -988,8 +1062,21 @@ export default function App() {
                         </span>
                       </td>
 
-                      {/* Section Workload (When Section Filter Active) */}
-                      {selectedSection !== 'ALL' && (
+                      {/* Assigned Sections (When ALL) OR Section Load (When Section Filter Active) */}
+                      {selectedSection === 'ALL' ? (
+                        <td className="border border-black p-3 text-center">
+                          <div className="flex flex-wrap justify-center gap-1.5 max-w-[260px] mx-auto">
+                            {f.assignedSections.map((sec: string, si: number) => (
+                              <span
+                                key={si}
+                                className="px-2.5 py-0.5 bg-blue-100 text-[#0B2545] font-extrabold text-xs rounded-md border border-blue-200 shadow-2xs whitespace-nowrap"
+                              >
+                                {sec}
+                              </span>
+                            ))}
+                          </div>
+                        </td>
+                      ) : (
                         <td className="border border-black p-3.5 bg-amber-100/90 font-black text-black text-center border-x border-amber-300">
                           <span className="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-black bg-amber-300 text-amber-950 border border-amber-500 shadow-sm">
                             {f.calculatedSectionTotal} hrs/wk
@@ -1053,9 +1140,18 @@ export default function App() {
             );
           }
 
-          const secTheoryTotal = secRows.reduce((sum: number, r: any) => sum + r.theoryHours, 0);
-          const secTutTotal = secRows.reduce((sum: number, r: any) => sum + (includeTutorials ? r.tutorialHours : 0), 0);
-          const secLabTotal = secRows.reduce((sum: number, r: any) => sum + r.labHours, 0);
+          if (selectedDepartment && selectedDepartment !== 'ALL') {
+            secRows = secRows.filter((r: any) =>
+              r.facultyList.some((f: any) => {
+                const fullFac = allFacultyData.find(fac => fac.shortName === f.shortName || fac.fullName === f.fullName);
+                return fullFac ? (fullFac.department || inferDepartment(fullFac)) === selectedDepartment : false;
+              })
+            );
+          }
+
+          const secTheoryTotal = secRows.reduce((sum: number, r: any) => sum + (r.theoryHours || 0), 0);
+          const secTutTotal = secRows.reduce((sum: number, r: any) => sum + (includeTutorials ? (r.tutorialHours || 0) : 0), 0);
+          const secLabTotal = secRows.reduce((sum: number, r: any) => sum + (r.labHours || 0), 0);
           const secTotalHours = secTheoryTotal + secTutTotal + secLabTotal;
 
           return (
@@ -1116,16 +1212,16 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Master Section Timetable Sheet (Screenshot 2 Excel-Style Web Table) */}
+              {/* Master Section Timetable Sheet (Exact Excel Format Matching Screenshot 2) */}
               <div className="bg-white rounded-2xl border-4 border-slate-900 shadow-xl overflow-hidden">
                 <div className="p-5 bg-slate-900 text-white border-b-4 border-slate-900 flex items-center justify-between">
                   <div>
                     <h3 className="text-xl font-extrabold text-amber-300 font-heading flex items-center gap-2">
                       <Building2 className="w-6 h-6 text-amber-400" />
-                      Official Master Section Timetable — {activeSec}
+                      Master Section Timetable Sheet — {activeSec}
                     </h3>
                     <p className="text-xs text-slate-300 font-medium mt-0.5">
-                      Excel Format Sheet Representation: Branch, Room No, Subject Name, Short Code, Weekly Hours & Assigned Faculty.
+                      Excel Columns: Branch | Room_no | Subject_Name | sub_short | Theory_Hours | Tutorial_Hours | Frequency | Lab_Hours | Name_short | Faculty_Name
                     </p>
                   </div>
                   <span className="text-xs font-black text-slate-900 bg-amber-400 px-3 py-1.5 rounded-lg border border-amber-500 shadow-sm">
@@ -1134,22 +1230,22 @@ export default function App() {
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse border-2 border-black text-sm">
+                  <table className="w-full text-left border-collapse border-2 border-black text-sm font-sans">
                     <thead>
                       <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black">
-                        <th className="border border-black p-3.5 text-center w-12">S.No</th>
-                        <th className="border border-black p-3.5 text-center w-28">Branch</th>
-                        <th className="border border-black p-3.5 text-center w-24">Room No</th>
-                        <th className="border border-black p-3.5">Subject Name</th>
-                        <th className="border border-black p-3.5 text-center w-28">Sub Short</th>
-                        <th className="border border-black p-3.5 text-center w-24">Theory Hours</th>
-                        <th className="border border-black p-3.5 text-center w-24">Tutorial Hours</th>
-                        <th className="border border-black p-3.5 text-center w-24">Lab Hours</th>
-                        <th className="border border-black p-3.5 text-center w-32">Faculty Code(s)</th>
-                        <th className="border border-black p-3.5">Faculty Full Name(s)</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Branch</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Room_no</th>
+                        <th className="border border-black p-3.5 italic font-serif">Subject_Name</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">sub_short</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Theory_Hours</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Tutorial_Hours</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Frequency</th>
+                        <th className="border border-black p-3.5 text-center italic font-serif">Lab_Hours</th>
+                        <th className="border border-black p-3.5 text-left italic font-serif">Name_short</th>
+                        <th className="border border-black p-3.5 text-left italic font-serif">Faculty_Name</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y-2 divide-black text-sm font-sans">
+                    <tbody className="divide-y-2 divide-black text-sm">
                       {secRows.length === 0 ? (
                         <tr>
                           <td colSpan={10} className="p-8 text-center text-slate-500 font-bold">
@@ -1158,36 +1254,67 @@ export default function App() {
                         </tr>
                       ) : (
                         secRows.map((row: any, idx: number) => (
-                          <tr key={idx} className="hover:bg-slate-100/90 transition-colors whitespace-nowrap">
-                            <td className="border border-black p-3 text-center font-black text-slate-900">{idx + 1}</td>
+                          <tr key={idx} className="hover:bg-slate-100/90 transition-colors">
+                            {/* Branch */}
                             <td className="border border-black p-3 text-center font-black">
                               <span className="px-2.5 py-1 bg-blue-100 text-[#0B2545] rounded-lg border border-blue-300 font-extrabold text-xs">
                                 {row.branch}
                               </span>
                             </td>
+
+                            {/* Room_no */}
                             <td className="border border-black p-3 text-center font-bold text-slate-700">{row.roomNo}</td>
+
+                            {/* Subject_Name */}
                             <td className="border border-black p-3 font-black text-slate-900 text-base">{row.subjectName}</td>
+
+                            {/* sub_short */}
                             <td className="border border-black p-3 text-center font-black text-[#800000]">
                               <span className="px-2.5 py-1 bg-red-50 text-[#800000] rounded-md border border-red-200 font-black text-xs">
                                 {row.subjectShort}
                               </span>
                             </td>
-                            <td className="border border-black p-3 text-center font-black text-emerald-900 text-base">{row.theoryHours}</td>
-                            <td className={`border border-black p-3 text-center font-black text-base ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
-                              {includeTutorials ? row.tutorialHours : 0}
+
+                            {/* Theory_Hours */}
+                            <td className="border border-black p-3 text-center font-black text-emerald-900 text-base">
+                              {row.theoryHours || ''}
                             </td>
-                            <td className="border border-black p-3 text-center font-black text-amber-900 text-base">{row.labHours}</td>
-                            <td className="border border-black p-3 text-center font-black">
-                              <div className="flex flex-wrap justify-center gap-1">
+
+                            {/* Tutorial_Hours */}
+                            <td className={`border border-black p-3 text-center font-black text-base ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
+                              {includeTutorials ? (row.tutorialHours || '') : ''}
+                            </td>
+
+                            {/* Frequency */}
+                            <td className="border border-black p-3 text-center font-extrabold text-slate-800 text-sm">
+                              {row.frequency || 1}
+                            </td>
+
+                            {/* Lab_Hours */}
+                            <td className="border border-black p-3 text-center font-black text-amber-900 text-base">
+                              {row.labHours || ''}
+                            </td>
+
+                            {/* Name_short (Stacked line by line matching Column I in screenshot) */}
+                            <td className="border border-black p-3 text-left font-black bg-amber-50/50">
+                              <div className="space-y-1">
                                 {row.facultyList.map((f: any, fi: number) => (
-                                  <span key={fi} className="px-2 py-0.5 bg-red-100 text-[#800000] font-black text-xs rounded border border-red-300">
+                                  <div key={fi} className="text-xs font-black text-[#800000] tracking-wide whitespace-nowrap">
                                     {f.shortName}
-                                  </span>
+                                  </div>
                                 ))}
                               </div>
                             </td>
-                            <td className="border border-black p-3 font-bold text-slate-900 text-sm">
-                              {row.facultyList.map((f: any) => f.fullName).join(', ')}
+
+                            {/* Faculty_Name (Stacked line by line matching Column J in screenshot) */}
+                            <td className="border border-black p-3 text-left font-extrabold">
+                              <div className="space-y-1">
+                                {row.facultyList.map((f: any, fi: number) => (
+                                  <div key={fi} className="text-xs font-bold text-slate-900 whitespace-nowrap">
+                                    {f.fullName}
+                                  </div>
+                                ))}
+                              </div>
                             </td>
                           </tr>
                         ))

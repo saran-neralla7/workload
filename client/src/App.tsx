@@ -275,6 +275,8 @@ export default function App() {
       const normalizeName = (name: string) => {
         return name.toLowerCase()
           .replace(/^(dr\.|mr\.|mrs\.|ms\.|prof\.)\s*/, '')
+          .replace(/santosh/g, 'santhosh')
+          .replace(/srinivasa/g, 'srinivas')
           .replace(/\s+/g, '')
           .replace(/[^a-z0-9]/g, '');
       };

@@ -70,7 +70,7 @@ export default function App() {
   const [sectionsModalFaculty, setSectionsModalFaculty] = useState<any>(null);
   const [isSectionsModalOpen, setIsSectionsModalOpen] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<'workload' | 'section_timetables' | 'subject_workload' | 'collaboration'>('workload');
+  const [activeTab, setActiveTab] = useState<'workload' | 'section_timetables' | 'collaboration'>('workload');
   const [subjectSearchQuery, setSubjectSearchQuery] = useState('');
   const [sectionSearchQuery, setSectionSearchQuery] = useState('');
   const [selectedTimetableSection, setSelectedTimetableSection] = useState<string>('CSE-1');
@@ -761,18 +761,6 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setActiveTab('subject_workload')}
-              className={`px-5 py-3 font-extrabold text-sm flex items-center gap-2 border-b-4 transition-all whitespace-nowrap ${
-                activeTab === 'subject_workload'
-                  ? 'border-[#DAA520] text-amber-300 bg-blue-950/80'
-                  : 'border-transparent text-slate-300 hover:text-white hover:bg-blue-900/50'
-              }`}
-            >
-              <BookOpen className="w-4 h-4 text-blue-400" />
-              Subject-Wise Workload Matrix
-            </button>
-
-            <button
               onClick={() => setActiveTab('collaboration')}
               className={`px-5 py-3 font-extrabold text-sm flex items-center gap-2 border-b-4 transition-all whitespace-nowrap ${
                 activeTab === 'collaboration'
@@ -1348,130 +1336,7 @@ export default function App() {
           );
         })()}
 
-        {/* SUBJECT-WISE WORKLOAD MATRIX VIEW */}
-        {activeTab === 'subject_workload' && (
-          <div className="space-y-8">
-            {/* Search Header for Subjects */}
-            <div className="bg-white p-5 rounded-2xl border-2 border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <h3 className="text-xl font-extrabold text-[#0B2545] font-heading flex items-center gap-2">
-                  <BookOpen className="w-6 h-6 text-[#800000]" />
-                  Campus-Wide Subject Workload Breakdown
-                </h3>
-                <p className="text-xs text-slate-600 font-bold mt-1">
-                  Master breakdown of total hours taught per subject across all branches, sections, and faculty members.
-                </p>
-              </div>
 
-              <div className="relative w-full md:w-80">
-                <Search className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search subject by name or code..."
-                  value={subjectSearchQuery}
-                  onChange={(e) => setSubjectSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-slate-50 border-2 border-slate-300 rounded-xl text-sm font-bold text-slate-900 focus:outline-none focus:border-[#0B2545]"
-                />
-              </div>
-            </div>
-
-            {/* Subject Master Table */}
-            <div className="bg-white rounded-2xl border-4 border-slate-900 shadow-xl overflow-hidden">
-              <div className="p-5 bg-slate-900 text-white border-b-4 border-slate-900 flex items-center justify-between">
-                <h3 className="text-xl font-extrabold text-amber-300 font-heading flex items-center gap-2">
-                  <BookOpen className="w-6 h-6 text-amber-400" />
-                  Official Subject-Wise Workload Table
-                </h3>
-                <span className="text-xs font-black text-slate-900 bg-amber-400 px-3 py-1.5 rounded-lg border border-amber-500 shadow-sm">
-                  Showing {subjectMasterData.list.filter(s => 
-                    !subjectSearchQuery || 
-                    s.subjectName.toLowerCase().includes(subjectSearchQuery.toLowerCase()) || 
-                    s.subjectShort.toLowerCase().includes(subjectSearchQuery.toLowerCase())
-                  ).length} Subjects
-                </span>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse border-2 border-black">
-                  <thead>
-                    <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black">
-                      <th className="border border-black p-4 w-12 text-center">S.No</th>
-                      <th className="border border-black p-4">Subject Name & Code</th>
-                      <th className="border border-black p-4 text-center">Campus Total Load</th>
-                      <th className="border border-black p-4 text-center">Theory / Tut / Lab Breakdown</th>
-                      <th className="border border-black p-4 text-center">Sections Offered</th>
-                      <th className="border border-black p-4">Assigned Faculty Members & Load</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y-2 divide-black text-base font-sans">
-                    {subjectMasterData.list
-                      .filter(s => 
-                        !subjectSearchQuery || 
-                        s.subjectName.toLowerCase().includes(subjectSearchQuery.toLowerCase()) || 
-                        s.subjectShort.toLowerCase().includes(subjectSearchQuery.toLowerCase())
-                      )
-                      .map((sub, sIdx) => (
-                        <tr key={sIdx} className="hover:bg-slate-100/90 transition-colors">
-                          <td className="border border-black p-4 text-center font-black text-slate-900">
-                            {sIdx + 1}
-                          </td>
-
-                          {/* Subject Name & Short Code */}
-                          <td className="border border-black p-4">
-                            <div className="font-black text-slate-900 text-base">
-                              {sub.subjectName}
-                            </div>
-                            {sub.subjectShort && (
-                              <span className="inline-block mt-1 px-2.5 py-0.5 bg-blue-100 text-blue-900 font-black text-xs rounded border border-blue-300">
-                                Code: {sub.subjectShort}
-                              </span>
-                            )}
-                          </td>
-
-                          {/* Total Hours */}
-                          <td className="border border-black p-4 text-center font-black text-[#800000] text-lg bg-amber-50">
-                            {sub.totalHours} <span className="text-xs font-bold text-slate-600">hrs/wk</span>
-                          </td>
-
-                          {/* Breakdown */}
-                          <td className="border border-black p-4 text-center text-xs font-bold text-slate-800">
-                            <span className="text-emerald-900 font-extrabold text-sm">{sub.theoryHours}h</span> Theory |{' '}
-                            <span className={`font-extrabold text-sm ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
-                              {sub.tutHours}h
-                            </span> Tut |{' '}
-                            <span className="text-amber-900 font-extrabold text-sm">{sub.labHours}h</span> Lab
-                          </td>
-
-                          {/* Sections Offered */}
-                          <td className="border border-black p-4 text-center">
-                            <div className="flex flex-wrap justify-center gap-1">
-                              {sub.sectionsList.map((sec, secI) => (
-                                <span key={secI} className="px-2 py-0.5 bg-[#0B2545] text-white font-extrabold text-xs rounded">
-                                  {sec}
-                                </span>
-                              ))}
-                            </div>
-                          </td>
-
-                          {/* Assigned Faculty */}
-                          <td className="border border-black p-4">
-                            <div className="flex flex-wrap gap-1.5">
-                              {sub.assignedFaculty.map((facItem, fI) => (
-                                <span key={fI} className="px-2.5 py-1 bg-red-100 text-[#800000] font-black text-xs rounded-lg border border-red-300 flex items-center gap-1 shadow-sm">
-                                  <span>{facItem.shortName}</span>
-                                  <span className="bg-[#800000] text-white px-1.5 py-0.5 rounded text-[10px] font-black">{facItem.hours}h</span>
-                                </span>
-                              ))}
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* SHARED / CO-FACULTY COLLABORATION MATRIX VIEW */}
         {activeTab === 'collaboration' && (

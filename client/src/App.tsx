@@ -15,7 +15,11 @@ import {
   Award,
   Printer,
   BarChart3,
-  Layers
+  Layers,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  Building2
 } from 'lucide-react';
 import fullFacultyData from './full_faculty_data.json';
 import * as xlsx from 'xlsx';
@@ -43,10 +47,16 @@ export default function App() {
   const [sectionsModalFaculty, setSectionsModalFaculty] = useState<any>(null);
   const [isSectionsModalOpen, setIsSectionsModalOpen] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<'workload' | 'subject_workload' | 'collaboration'>('workload');
+  const [activeTab, setActiveTab] = useState<'workload' | 'section_timetables' | 'subject_workload' | 'collaboration'>('workload');
   const [subjectSearchQuery, setSubjectSearchQuery] = useState('');
+  const [sectionSearchQuery, setSectionSearchQuery] = useState('');
+  const [selectedTimetableSection, setSelectedTimetableSection] = useState<string>('CSE-1');
   const [uploading, setUploading] = useState(false);
   const [uploadMessage, setUploadMessage] = useState('');
+
+  // Column Sorting States
+  const [sortField, setSortField] = useState<'sno' | 'faculty' | 'shortCode' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload'>('totalWorkload');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
   // Compute Co-Faculty Collaboration Matrix
   const collaborationMatrixData = React.useMemo(() => {
@@ -207,6 +217,45 @@ export default function App() {
     };
   }, [allFacultyData, includeTutorials]);
 
+  // Compute Section Master Timetable View (Screenshot 2 Excel-style web page)
+  const sectionMasterTimetables = React.useMemo(() => {
+    const sectionMap: { [sec: string]: any[] } = {};
+
+    allFacultyData.forEach(fac => {
+      fac.classes.forEach((c: any) => {
+        const sec = c.branch || 'Unassigned';
+        if (!sectionMap[sec]) {
+          sectionMap[sec] = [];
+        }
+
+        let existing = sectionMap[sec].find(
+          item => item.subjectName === c.subjectName && item.sessionType === c.sessionType
+        );
+
+        if (existing) {
+          if (!existing.facultyList.some((f: any) => f.shortName === fac.shortName)) {
+            existing.facultyList.push({ fullName: fac.fullName, shortName: fac.shortName });
+          }
+        } else {
+          sectionMap[sec].push({
+            branch: c.branch,
+            roomNo: c.roomNo || (c.sessionType === 'Lab' ? `${c.subjectShort || 'COMP'} LAB` : 'G-204'),
+            subjectName: c.subjectName,
+            subjectShort: c.subjectShort,
+            theoryHours: c.sessionType === 'Theory' ? c.hours : 0,
+            tutorialHours: c.sessionType === 'Tutorial' ? c.hours : 0,
+            labHours: c.sessionType === 'Lab' ? c.hours : 0,
+            frequency: 1,
+            facultyList: [{ fullName: fac.fullName, shortName: fac.shortName }],
+            coFacultyText: c.coFacultyList || ''
+          });
+        }
+      });
+    });
+
+    return sectionMap;
+  }, [allFacultyData]);
+
   // Extract unique sections
   useEffect(() => {
     const secSet = new Set<string>();
@@ -217,10 +266,10 @@ export default function App() {
     setSections(['ALL', ...sortedSecs]);
   }, [allFacultyData]);
 
-  // Recalculate workload stats whenever section filter, tutorial toggle, search, or dataset changes
+  // Recalculate workload stats whenever section filter, tutorial toggle, search, dataset, or sorting changes
   useEffect(() => {
     calculateAndFilterWorkload();
-  }, [selectedSection, includeTutorials, searchQuery, allFacultyData]);
+  }, [selectedSection, includeTutorials, searchQuery, allFacultyData, sortField, sortOrder]);
 
   // Try fetching live data from NestJS API (port 4001)
   useEffect(() => {
@@ -238,6 +287,15 @@ export default function App() {
       }
     } catch (e) {
       // Fallback to full_faculty_data.json
+    }
+  };
+
+  const handleSort = (field: 'sno' | 'faculty' | 'shortCode' | 'sectionLoad' | 'theory' | 'tutorial' | 'lab' | 'totalWorkload') => {
+    if (sortField === field) {
+      setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortField(field);
+      setSortOrder(field === 'faculty' || field === 'shortCode' ? 'asc' : 'desc');
     }
   };
 
@@ -349,8 +407,51 @@ export default function App() {
       );
     }
 
-    // Sort by calculated overall total workload descending
-    list.sort((a, b) => b.calculatedOverallTotal - a.calculatedOverallTotal);
+    // Dynamic Column Sorting
+    list.sort((a, b) => {
+      let valA: any;
+      let valB: any;
+
+      switch (sortField) {
+        case 'sno':
+          valA = a.id || a.shortName;
+          valB = b.id || b.shortName;
+          break;
+        case 'faculty':
+          valA = a.fullName.toLowerCase();
+          valB = b.fullName.toLowerCase();
+          break;
+        case 'shortCode':
+          valA = a.shortName.toLowerCase();
+          valB = b.shortName.toLowerCase();
+          break;
+        case 'sectionLoad':
+          valA = a.calculatedSectionTotal;
+          valB = b.calculatedSectionTotal;
+          break;
+        case 'theory':
+          valA = selectedSection !== 'ALL' ? a.sectionTheoryHours : a.overallTheoryHours;
+          valB = selectedSection !== 'ALL' ? b.sectionTheoryHours : b.overallTheoryHours;
+          break;
+        case 'tutorial':
+          valA = selectedSection !== 'ALL' ? a.sectionTutorialHours : a.overallTutorialHours;
+          valB = selectedSection !== 'ALL' ? b.sectionTutorialHours : b.overallTutorialHours;
+          break;
+        case 'lab':
+          valA = selectedSection !== 'ALL' ? a.sectionLabHours : a.overallLabHours;
+          valB = selectedSection !== 'ALL' ? b.sectionLabHours : b.overallLabHours;
+          break;
+        case 'totalWorkload':
+        default:
+          valA = a.calculatedOverallTotal;
+          valB = b.calculatedOverallTotal;
+          break;
+      }
+
+      if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
+      if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
+      return 0;
+    });
 
     const totalHours = list.reduce((sum, f) => sum + f.calculatedOverallTotal, 0);
 
@@ -564,6 +665,19 @@ export default function App() {
             </button>
 
             <button
+              onClick={() => setActiveTab('section_timetables')}
+              className={`px-5 py-3 font-extrabold text-sm flex items-center gap-2 border-b-4 transition-all whitespace-nowrap ${
+                activeTab === 'section_timetables'
+                  ? 'border-[#DAA520] text-amber-300 bg-blue-950/80'
+                  : 'border-transparent text-slate-300 hover:text-white hover:bg-blue-900/50'
+              }`}
+            >
+              <Building2 className="w-4 h-4 text-purple-400" />
+              Program Section Timetables
+              <span className="ml-1 px-2.5 py-0.5 bg-purple-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">NEW</span>
+            </button>
+
+            <button
               onClick={() => setActiveTab('subject_workload')}
               className={`px-5 py-3 font-extrabold text-sm flex items-center gap-2 border-b-4 transition-all whitespace-nowrap ${
                 activeTab === 'subject_workload'
@@ -573,7 +687,6 @@ export default function App() {
             >
               <BookOpen className="w-4 h-4 text-blue-400" />
               Subject-Wise Workload Matrix
-              <span className="ml-1 px-2.5 py-0.5 bg-blue-500 text-slate-950 font-black text-[10px] rounded-full uppercase tracking-wider">NEW</span>
             </button>
 
             <button
@@ -744,20 +857,112 @@ export default function App() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse border-2 border-black">
                 <thead>
-                  <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black">
-                    <th className="border border-black p-3.5 text-center w-14">S.No</th>
-                    <th className="border border-black p-3.5">Faculty Member</th>
-                    <th className="border border-black p-3.5 text-center w-28">Short Code</th>
+                  <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black select-none">
+                    <th
+                      onClick={() => handleSort('sno')}
+                      className="border border-black p-3.5 text-center w-14 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>S.No</span>
+                        {sortField === 'sno' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => handleSort('faculty')}
+                      className="border border-black p-3.5 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <span>Faculty Member</span>
+                        {sortField === 'faculty' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => handleSort('shortCode')}
+                      className="border border-black p-3.5 text-center w-28 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>Short Code</span>
+                        {sortField === 'shortCode' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
                     {selectedSection !== 'ALL' && (
-                      <th className="border border-black p-3.5 text-amber-300 bg-black text-center font-black">
-                        Section ({selectedSection}) Load
+                      <th
+                        onClick={() => handleSort('sectionLoad')}
+                        className="border border-black p-3.5 text-amber-300 bg-black text-center font-black cursor-pointer hover:bg-slate-900 transition-colors"
+                      >
+                        <div className="flex items-center justify-center gap-1">
+                          <span>Section ({selectedSection}) Load</span>
+                          {sortField === 'sectionLoad' ? (
+                            sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                          ) : (
+                            <ArrowUpDown className="w-3 h-3 text-amber-300 opacity-60" />
+                          )}
+                        </div>
                       </th>
                     )}
-                    <th className="border border-black p-3.5 text-center w-28">Theory</th>
-                    <th className="border border-black p-3.5 text-center w-28">Tutorial</th>
-                    <th className="border border-black p-3.5 text-center w-28">Lab</th>
-                    <th className="border border-black p-3.5 text-center w-36 text-amber-300 bg-black font-black">
-                      Total Workload
+                    <th
+                      onClick={() => handleSort('theory')}
+                      className="border border-black p-3.5 text-center w-28 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>Theory</span>
+                        {sortField === 'theory' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => handleSort('tutorial')}
+                      className="border border-black p-3.5 text-center w-28 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>Tutorial</span>
+                        {sortField === 'tutorial' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => handleSort('lab')}
+                      className="border border-black p-3.5 text-center w-28 cursor-pointer hover:bg-slate-800 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>Lab</span>
+                        {sortField === 'lab' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => handleSort('totalWorkload')}
+                      className="border border-black p-3.5 text-center w-36 text-amber-300 bg-black font-black cursor-pointer hover:bg-slate-900 transition-colors"
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>Total Workload</span>
+                        {sortField === 'totalWorkload' ? (
+                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-amber-300 opacity-60" />
+                        )}
+                      </div>
                     </th>
                     <th className="border border-black p-3.5 text-center">Action</th>
                   </tr>
@@ -794,17 +999,17 @@ export default function App() {
 
                       {/* Theory Hours Column */}
                       <td className="border border-black p-3.5 text-center font-black text-emerald-900 text-base">
-                        {f.overallTheoryHours} <span className="text-xs font-bold text-slate-600">hrs</span>
+                        {selectedSection !== 'ALL' ? f.sectionTheoryHours : f.overallTheoryHours} <span className="text-xs font-bold text-slate-600">hrs</span>
                       </td>
 
                       {/* Tutorial Hours Column */}
                       <td className={`border border-black p-3.5 text-center font-black text-base ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
-                        {includeTutorials ? f.overallTutorialHours : 0} <span className="text-xs font-bold text-slate-600">hrs</span>
+                        {includeTutorials ? (selectedSection !== 'ALL' ? f.sectionTutorialHours : f.overallTutorialHours) : 0} <span className="text-xs font-bold text-slate-600">hrs</span>
                       </td>
 
                       {/* Lab Hours Column */}
                       <td className="border border-black p-3.5 text-center font-black text-amber-900 text-base">
-                        {f.overallLabHours} <span className="text-xs font-bold text-slate-600">hrs</span>
+                        {selectedSection !== 'ALL' ? f.sectionLabHours : f.overallLabHours} <span className="text-xs font-bold text-slate-600">hrs</span>
                       </td>
 
                       {/* Overall Total Workload */}
@@ -830,6 +1035,170 @@ export default function App() {
             </div>
           </div>
         )}
+
+        {/* PROGRAM SECTION TIMETABLES VIEW (EXCEL-STYLE SECTION MASTER SCHEDULES) */}
+        {activeTab === 'section_timetables' && (() => {
+          const availableSecs = Object.keys(sectionMasterTimetables).sort();
+          const activeSec = availableSecs.includes(selectedTimetableSection)
+            ? selectedTimetableSection
+            : (availableSecs[0] || 'CSE-1');
+          
+          let secRows = sectionMasterTimetables[activeSec] || [];
+          if (sectionSearchQuery && sectionSearchQuery.trim()) {
+            const q = sectionSearchQuery.toLowerCase().trim();
+            secRows = secRows.filter((r: any) =>
+              r.subjectName.toLowerCase().includes(q) ||
+              r.subjectShort.toLowerCase().includes(q) ||
+              r.facultyList.some((f: any) => f.fullName.toLowerCase().includes(q) || f.shortName.toLowerCase().includes(q))
+            );
+          }
+
+          const secTheoryTotal = secRows.reduce((sum: number, r: any) => sum + r.theoryHours, 0);
+          const secTutTotal = secRows.reduce((sum: number, r: any) => sum + (includeTutorials ? r.tutorialHours : 0), 0);
+          const secLabTotal = secRows.reduce((sum: number, r: any) => sum + r.labHours, 0);
+          const secTotalHours = secTheoryTotal + secTutTotal + secLabTotal;
+
+          return (
+            <div className="space-y-8">
+              {/* Controls Bar */}
+              <div className="bg-white p-6 rounded-2xl border-2 border-slate-200 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <label className="text-xs font-black uppercase tracking-wider text-[#0B2545] flex items-center gap-2">
+                    <Building2 className="w-5 h-5 text-[#800000]" /> Select Section Timetable:
+                  </label>
+                  <select
+                    value={activeSec}
+                    onChange={e => setSelectedTimetableSection(e.target.value)}
+                    className="bg-slate-50 border-2 border-slate-300 text-slate-900 font-extrabold text-base rounded-xl p-3 min-w-[220px] focus:ring-amber-500 focus:border-amber-500 shadow-sm cursor-pointer"
+                  >
+                    {availableSecs.map(s => (
+                      <option key={s} value={s}>
+                        📘 Section: {s}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Section Stats KPI */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="px-3.5 py-1.5 bg-emerald-100 text-emerald-900 font-black text-xs rounded-xl border border-emerald-300">
+                    Theory: {secTheoryTotal}h
+                  </span>
+                  <span className={`px-3.5 py-1.5 font-black text-xs rounded-xl border ${includeTutorials ? 'bg-blue-100 text-blue-900 border-blue-300' : 'bg-slate-100 text-slate-400 border-slate-300 line-through'}`}>
+                    Tut: {secTutTotal}h
+                  </span>
+                  <span className="px-3.5 py-1.5 bg-amber-100 text-amber-900 font-black text-xs rounded-xl border border-amber-300">
+                    Lab: {secLabTotal}h
+                  </span>
+                  <span className="px-4 py-1.5 bg-[#800000] text-white font-black text-sm rounded-xl border border-red-900 shadow-sm">
+                    Section Total: {secTotalHours} hrs/wk
+                  </span>
+                </div>
+
+                {/* Search Bar for Section Courses */}
+                <div className="relative w-full md:w-72">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                  <input
+                    type="text"
+                    placeholder="Search subject or faculty..."
+                    value={sectionSearchQuery}
+                    onChange={e => setSectionSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border-2 border-slate-300 rounded-xl text-sm font-bold text-slate-900 focus:ring-amber-500 focus:border-amber-500"
+                  />
+                  {sectionSearchQuery && (
+                    <button
+                      onClick={() => setSectionSearchQuery('')}
+                      className="absolute right-3 top-3 text-slate-400 hover:text-slate-600 p-0.5"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Master Section Timetable Sheet (Screenshot 2 Excel-Style Web Table) */}
+              <div className="bg-white rounded-2xl border-4 border-slate-900 shadow-xl overflow-hidden">
+                <div className="p-5 bg-slate-900 text-white border-b-4 border-slate-900 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-extrabold text-amber-300 font-heading flex items-center gap-2">
+                      <Building2 className="w-6 h-6 text-amber-400" />
+                      Official Master Section Timetable — {activeSec}
+                    </h3>
+                    <p className="text-xs text-slate-300 font-medium mt-0.5">
+                      Excel Format Sheet Representation: Branch, Room No, Subject Name, Short Code, Weekly Hours & Assigned Faculty.
+                    </p>
+                  </div>
+                  <span className="text-xs font-black text-slate-900 bg-amber-400 px-3 py-1.5 rounded-lg border border-amber-500 shadow-sm">
+                    {secRows.length} Course Assignments
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse border-2 border-black text-sm">
+                    <thead>
+                      <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black">
+                        <th className="border border-black p-3.5 text-center w-12">S.No</th>
+                        <th className="border border-black p-3.5 text-center w-28">Branch</th>
+                        <th className="border border-black p-3.5 text-center w-24">Room No</th>
+                        <th className="border border-black p-3.5">Subject Name</th>
+                        <th className="border border-black p-3.5 text-center w-28">Sub Short</th>
+                        <th className="border border-black p-3.5 text-center w-24">Theory Hours</th>
+                        <th className="border border-black p-3.5 text-center w-24">Tutorial Hours</th>
+                        <th className="border border-black p-3.5 text-center w-24">Lab Hours</th>
+                        <th className="border border-black p-3.5 text-center w-32">Faculty Code(s)</th>
+                        <th className="border border-black p-3.5">Faculty Full Name(s)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y-2 divide-black text-sm font-sans">
+                      {secRows.length === 0 ? (
+                        <tr>
+                          <td colSpan={10} className="p-8 text-center text-slate-500 font-bold">
+                            No timetable assignments found for section {activeSec}.
+                          </td>
+                        </tr>
+                      ) : (
+                        secRows.map((row: any, idx: number) => (
+                          <tr key={idx} className="hover:bg-slate-100/90 transition-colors whitespace-nowrap">
+                            <td className="border border-black p-3 text-center font-black text-slate-900">{idx + 1}</td>
+                            <td className="border border-black p-3 text-center font-black">
+                              <span className="px-2.5 py-1 bg-blue-100 text-[#0B2545] rounded-lg border border-blue-300 font-extrabold text-xs">
+                                {row.branch}
+                              </span>
+                            </td>
+                            <td className="border border-black p-3 text-center font-bold text-slate-700">{row.roomNo}</td>
+                            <td className="border border-black p-3 font-black text-slate-900 text-base">{row.subjectName}</td>
+                            <td className="border border-black p-3 text-center font-black text-[#800000]">
+                              <span className="px-2.5 py-1 bg-red-50 text-[#800000] rounded-md border border-red-200 font-black text-xs">
+                                {row.subjectShort}
+                              </span>
+                            </td>
+                            <td className="border border-black p-3 text-center font-black text-emerald-900 text-base">{row.theoryHours}</td>
+                            <td className={`border border-black p-3 text-center font-black text-base ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
+                              {includeTutorials ? row.tutorialHours : 0}
+                            </td>
+                            <td className="border border-black p-3 text-center font-black text-amber-900 text-base">{row.labHours}</td>
+                            <td className="border border-black p-3 text-center font-black">
+                              <div className="flex flex-wrap justify-center gap-1">
+                                {row.facultyList.map((f: any, fi: number) => (
+                                  <span key={fi} className="px-2 py-0.5 bg-red-100 text-[#800000] font-black text-xs rounded border border-red-300">
+                                    {f.shortName}
+                                  </span>
+                                ))}
+                              </div>
+                            </td>
+                            <td className="border border-black p-3 font-bold text-slate-900 text-sm">
+                              {row.facultyList.map((f: any) => f.fullName).join(', ')}
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* SUBJECT-WISE WORKLOAD MATRIX VIEW */}
         {activeTab === 'subject_workload' && (

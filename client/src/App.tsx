@@ -470,13 +470,17 @@ export default function App() {
     }
   };
 
+  const [modalActiveTab, setModalActiveTab] = useState<'subjects' | 'sections' | 'schedule'>('subjects');
+
   const openScheduleModal = (fac: any) => {
-    setSelectedFacultyDetails(fac);
-    setIsScheduleModalOpen(true);
+    setSectionsModalFaculty(fac);
+    setModalActiveTab('schedule');
+    setIsSectionsModalOpen(true);
   };
 
-  const openSectionsModal = (fac: any) => {
+  const openSectionsModal = (fac: any, defaultTab: 'subjects' | 'sections' | 'schedule' = 'subjects') => {
     setSectionsModalFaculty(fac);
+    setModalActiveTab(defaultTab);
     setIsSectionsModalOpen(true);
   };
 
@@ -796,41 +800,61 @@ export default function App() {
                       {/* Assigned Sections & Assigned Subjects Column */}
                       <td className="border border-black p-4">
                         <div className="flex flex-col gap-2 items-start">
-                          {/* Subject Badges */}
+                          {/* Subject Badges Preview */}
                           <div className="flex flex-wrap gap-1 items-center">
                             <span className="text-[11px] font-black text-slate-500 uppercase mr-1">Subjects:</span>
-                            {f.subjectBreakdownList?.map((subItem: any, sbi: number) => (
+                            {f.subjectBreakdownList?.slice(0, 2).map((subItem: any, sbi: number) => (
                               <span key={sbi} className="px-2 py-0.5 bg-blue-100 text-blue-900 font-extrabold text-[11px] rounded border border-blue-300">
-                                {subItem.subjectShort || subItem.subjectName}: {subItem.totalHours}h
+                                {subItem.subjectShort || subItem.subjectName} ({subItem.totalHours}h)
                               </span>
                             ))}
+                            {(f.subjectBreakdownList?.length || 0) > 2 && (
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 font-extrabold text-[10px] rounded border border-slate-300">
+                                +{f.subjectBreakdownList.length - 2} more
+                              </span>
+                            )}
                           </div>
 
-                          {/* Section Badges */}
+                          {/* Section Badges Preview */}
                           <div className="flex flex-wrap gap-1 items-center">
                             <span className="text-[11px] font-black text-slate-500 uppercase mr-1">Sections:</span>
-                            {f.sectionBreakdownList?.map((secItem: any, si: number) => (
+                            {f.sectionBreakdownList?.slice(0, 2).map((secItem: any, si: number) => (
                               <span key={si} className="px-2 py-0.5 bg-[#0B2545] text-white font-extrabold text-[11px] rounded">
-                                {secItem.sectionName}: {secItem.totalHours}h
+                                {secItem.sectionName} ({secItem.totalHours}h)
                               </span>
                             ))}
+                            {(f.sectionBreakdownList?.length || 0) > 2 && (
+                              <span className="px-1.5 py-0.5 bg-slate-100 text-slate-700 font-extrabold text-[10px] rounded border border-slate-300">
+                                +{f.sectionBreakdownList.length - 2} more
+                              </span>
+                            )}
                           </div>
 
-                          {/* CLICK HERE BUTTON FOR ASSIGNED SECTIONS & SUBJECTS */}
-                          <button
-                            onClick={() => openSectionsModal(f)}
-                            className="px-3.5 py-1.5 bg-amber-200 hover:bg-amber-300 text-amber-950 font-black text-xs rounded-xl border-2 border-amber-400 transition-colors flex items-center gap-1.5 shadow-sm mt-1"
-                          >
-                            <Layers className="w-4 h-4 text-[#800000]" />
-                            Click Here for Sections & Subjects Breakdown ({f.assignedSections.length} Sections, {f.subjectBreakdownList?.length || 0} Subjects)
-                          </button>
+                          {/* Interactive Trigger Buttons */}
+                          <div className="flex flex-wrap gap-2 pt-1 w-full">
+                            <button
+                              onClick={() => openSectionsModal(f, 'subjects')}
+                              className="px-3 py-1.5 bg-blue-900 hover:bg-blue-950 text-white font-extrabold text-xs rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
+                            >
+                              <BookOpen className="w-3.5 h-3.5 text-amber-300" />
+                              Subjects ({f.subjectBreakdownList?.length || 0})
+                            </button>
+
+                            <button
+                              onClick={() => openSectionsModal(f, 'sections')}
+                              className="px-3 py-1.5 bg-[#800000] hover:bg-red-950 text-white font-extrabold text-xs rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
+                            >
+                              <Layers className="w-3.5 h-3.5 text-amber-300" />
+                              Sections ({f.assignedSections.length})
+                            </button>
+                          </div>
                         </div>
                       </td>
 
                       {/* View Schedule Action Button */}
                       <td className="border border-black p-4 text-center">
                         <button
-                          onClick={() => openScheduleModal(f)}
+                          onClick={() => openSectionsModal(f, 'schedule')}
                           className="px-4 py-2 bg-[#0B2545] text-white text-xs font-extrabold rounded-xl hover:bg-[#800000] transition-colors flex items-center gap-1.5 mx-auto shadow-sm"
                         >
                           View Schedule
@@ -1160,23 +1184,28 @@ export default function App() {
         </div>
       </main>
 
-      {/* ================= MODAL 1: ASSIGNED SECTIONS & SUBJECTS WORKLOAD POPUP ================= */}
+      {/* ================= UNIFIED FACULTY WORKLOAD & BREAKDOWN POPUP MODAL ================= */}
       {isSectionsModalOpen && sectionsModalFaculty && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-3xl w-full p-7 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto border-4 border-[#800000]">
+          <div className="bg-white rounded-3xl max-w-3xl w-full p-7 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto border-4 border-[#0B2545]">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b-2 pb-4 border-slate-200">
               <div>
                 <div className="text-xs font-black text-[#800000] uppercase tracking-wider flex items-center gap-1.5">
-                  <Layers className="w-4 h-4 text-[#800000]" /> Assigned Sections & Subjects Workload Breakdown
+                  <Layers className="w-4 h-4 text-[#800000]" /> Detailed Teaching Assignment & Workload Analysis
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 font-heading">
                   {sectionsModalFaculty.fullName}
                 </h3>
-                <span className="text-sm font-extrabold text-[#0B2545]">
-                  Short Code: {sectionsModalFaculty.shortName}
-                </span>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="px-2.5 py-0.5 bg-red-100 text-[#800000] font-black text-xs rounded border border-red-200">
+                    Code: {sectionsModalFaculty.shortName}
+                  </span>
+                  <span className="text-xs font-bold text-slate-500">
+                    • Total Workload: <strong className="text-[#0B2545] text-sm">{sectionsModalFaculty.calculatedOverallTotal} hrs/wk</strong>
+                  </span>
+                </div>
               </div>
               <button
                 onClick={() => setIsSectionsModalOpen(false)}
@@ -1186,244 +1215,236 @@ export default function App() {
               </button>
             </div>
 
-            {/* Total Workload Header Summary */}
-            <div className="grid grid-cols-3 gap-4 p-4 bg-slate-100 rounded-2xl border border-slate-200 text-center">
+            {/* Total Workload Header Summary Cards */}
+            <div className="grid grid-cols-3 gap-3 p-3 bg-slate-100 rounded-2xl border border-slate-200 text-center">
               <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Overall Total Workload</div>
-                <div className="text-2xl font-black text-[#0B2545] mt-0.5">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">Overall Workload</div>
+                <div className="text-xl font-black text-[#0B2545] mt-0.5">
                   {sectionsModalFaculty.calculatedOverallTotal} hrs/wk
                 </div>
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Assigned Subjects</div>
-                <div className="text-2xl font-black text-blue-900 mt-0.5">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">Assigned Subjects</div>
+                <div className="text-xl font-black text-blue-900 mt-0.5">
                   {sectionsModalFaculty.subjectBreakdownList?.length || 0} Subjects
                 </div>
               </div>
               <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Assigned Sections</div>
-                <div className="text-2xl font-black text-[#800000] mt-0.5">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">Assigned Sections</div>
+                <div className="text-xl font-black text-[#800000] mt-0.5">
                   {sectionsModalFaculty.assignedSections?.length || 0} Sections
                 </div>
               </div>
             </div>
 
-            {/* SECTION 1: WORKLOAD PER ASSIGNED SUBJECT */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between border-b pb-2">
-                <h4 className="text-sm font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-blue-900" />
-                  1. Workload Per Assigned Subject ({sectionsModalFaculty.subjectBreakdownList?.length || 0})
-                </h4>
-                <span className="text-xs font-bold text-slate-500">Aggregated across sections</span>
-              </div>
-              
-              <div className="grid grid-cols-1 gap-3">
-                {sectionsModalFaculty.subjectBreakdownList?.map((subItem: any, idx: number) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl border-2 border-blue-200 bg-blue-50/50 hover:bg-blue-100/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
-                  >
-                    <div className="space-y-1.5 flex-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="px-3 py-1 bg-[#0B2545] text-white font-extrabold text-sm rounded-lg shadow-sm">
-                          {subItem.subjectName}
-                        </span>
-                        {subItem.subjectShort && (
-                          <span className="px-2.5 py-0.5 bg-blue-200 text-blue-950 font-black text-xs rounded-md border border-blue-300">
-                            Code: {subItem.subjectShort}
-                          </span>
-                        )}
-                      </div>
+            {/* Modal Sub-Navigation Tabs */}
+            <div className="flex items-center gap-2 border-b-2 border-slate-200 pb-2 overflow-x-auto">
+              <button
+                onClick={() => setModalActiveTab('subjects')}
+                className={`px-4 py-2.5 rounded-xl font-extrabold text-xs flex items-center gap-2 transition-all whitespace-nowrap ${
+                  modalActiveTab === 'subjects'
+                    ? 'bg-[#0B2545] text-amber-300 shadow-md ring-2 ring-blue-900'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                <BookOpen className="w-4 h-4 text-amber-400" />
+                Assigned Subjects ({sectionsModalFaculty.subjectBreakdownList?.length || 0})
+              </button>
 
-                      {/* Type breakdown */}
-                      <div className="text-xs font-bold text-slate-700 flex items-center gap-3">
-                        <span>Theory: <strong className="text-emerald-800">{subItem.theoryHours}h</strong></span>
-                        <span>•</span>
-                        <span>Tutorial: <strong className={includeTutorials ? 'text-blue-800' : 'text-slate-400 line-through'}>{subItem.tutHours}h</strong></span>
-                        <span>•</span>
-                        <span>Lab: <strong className="text-amber-800">{subItem.labHours}h</strong></span>
-                      </div>
+              <button
+                onClick={() => setModalActiveTab('sections')}
+                className={`px-4 py-2.5 rounded-xl font-extrabold text-xs flex items-center gap-2 transition-all whitespace-nowrap ${
+                  modalActiveTab === 'sections'
+                    ? 'bg-[#800000] text-amber-300 shadow-md ring-2 ring-red-900'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                <Layers className="w-4 h-4 text-amber-400" />
+                Assigned Sections ({sectionsModalFaculty.assignedSections?.length || 0})
+              </button>
 
-                      {/* Sections taught for this subject */}
-                      <div className="flex items-center gap-1.5 flex-wrap pt-1">
-                        <span className="text-xs font-bold text-slate-500">Taught in Sections:</span>
-                        {subItem.sections.map((sec: string, si: number) => (
-                          <span key={si} className="px-2 py-0.5 bg-white text-slate-900 font-extrabold text-[11px] rounded border border-slate-300">
-                            {sec}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Workload Pill */}
-                    <div className="text-right flex-shrink-0">
-                      <span className="text-2xl font-black text-[#800000]">
-                        {subItem.totalHours} hrs/wk
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <button
+                onClick={() => setModalActiveTab('schedule')}
+                className={`px-4 py-2.5 rounded-xl font-extrabold text-xs flex items-center gap-2 transition-all whitespace-nowrap ${
+                  modalActiveTab === 'schedule'
+                    ? 'bg-slate-900 text-white shadow-md ring-2 ring-slate-700'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                <Clock className="w-4 h-4 text-amber-400" />
+                Class Schedule ({sectionsModalFaculty.classes?.length || 0} Sessions)
+              </button>
             </div>
 
-            {/* SECTION 2: WORKLOAD PER ASSIGNED SECTION */}
-            <div className="space-y-3 pt-4 border-t-2 border-slate-200">
-              <div className="flex items-center justify-between border-b pb-2">
-                <h4 className="text-sm font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-[#800000]" />
-                  2. Workload Per Assigned Section ({sectionsModalFaculty.sectionBreakdownList?.length || 0})
-                </h4>
-              </div>
-              
-              <div className="grid grid-cols-1 gap-3">
-                {sectionsModalFaculty.sectionBreakdownList?.map((secItem: any, idx: number) => {
-                  const isCurrentFilter = selectedSection !== 'ALL' && secItem.sectionName === selectedSection;
-
-                  return (
+            {/* TAB 1: ASSIGNED SUBJECTS BREAKDOWN */}
+            {modalActiveTab === 'subjects' && (
+              <div className="space-y-3">
+                <div className="text-xs font-bold text-slate-600">
+                  Aggregated workload breakdown per subject taught across program sections:
+                </div>
+                
+                <div className="space-y-3">
+                  {sectionsModalFaculty.subjectBreakdownList?.map((subItem: any, idx: number) => (
                     <div
                       key={idx}
-                      className={`p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${
-                        isCurrentFilter
-                          ? 'bg-amber-100/90 border-amber-500 shadow-md ring-2 ring-amber-300'
-                          : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
-                      }`}
+                      className="p-4 rounded-2xl border-2 border-blue-200 bg-blue-50/40 hover:bg-blue-50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
                     >
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2">
-                          <span className={`px-3 py-1 font-extrabold text-sm rounded-lg ${
-                            isCurrentFilter ? 'bg-[#800000] text-white' : 'bg-[#0B2545] text-white'
-                          }`}>
-                            Section: {secItem.sectionName}
+                      <div className="space-y-2 flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-3 py-1 bg-[#0B2545] text-white font-extrabold text-sm rounded-lg shadow-sm">
+                            {subItem.subjectName}
                           </span>
-                          {isCurrentFilter && (
-                            <span className="text-xs font-bold px-2.5 py-0.5 bg-amber-200 text-amber-950 rounded-md border border-amber-400">
-                              Selected Filter
+                          {subItem.subjectShort && (
+                            <span className="px-2.5 py-0.5 bg-blue-200 text-blue-950 font-black text-xs rounded-md border border-blue-300">
+                              Code: {subItem.subjectShort}
                             </span>
                           )}
                         </div>
 
-                        {/* Subject Details */}
-                        <div className="text-xs font-bold text-slate-700 pt-1">
-                          {secItem.classes.map((cls: any, ci: number) => (
-                            <div key={ci} className="flex items-center gap-1.5 mt-0.5">
-                              <span className="text-slate-900 font-bold">• {cls.subjectName} ({cls.subjectShort})</span>
-                              <span className="text-slate-500">[{cls.sessionType}]</span>
-                            </div>
+                        {/* Hours Breakdown */}
+                        <div className="text-xs font-bold text-slate-700 flex items-center gap-3">
+                          <span>Theory: <strong className="text-emerald-800">{subItem.theoryHours} hrs/wk</strong></span>
+                          <span>•</span>
+                          <span>Tutorial: <strong className={includeTutorials ? 'text-blue-800' : 'text-slate-400 line-through'}>{subItem.tutHours} hrs/wk</strong></span>
+                          <span>•</span>
+                          <span>Lab: <strong className="text-amber-800">{subItem.labHours} hrs/wk</strong></span>
+                        </div>
+
+                        {/* Sections taught */}
+                        <div className="flex items-center gap-1.5 flex-wrap pt-1">
+                          <span className="text-xs font-bold text-slate-500">Taught in Sections ({subItem.sections.length}):</span>
+                          {subItem.sections.map((sec: string, si: number) => (
+                            <span key={si} className="px-2.5 py-0.5 bg-white text-slate-900 font-extrabold text-xs rounded border border-slate-300 shadow-sm">
+                              {sec}
+                            </span>
                           ))}
                         </div>
                       </div>
 
                       {/* Workload Pill */}
-                      <div className="text-right">
-                        <span className="text-xl font-black text-[#800000]">
-                          {secItem.totalHours} hrs/wk
+                      <div className="text-right flex-shrink-0 bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                        <div className="text-[10px] font-extrabold text-slate-500 uppercase">Subject Load</div>
+                        <span className="text-2xl font-black text-[#800000]">
+                          {subItem.totalHours} <span className="text-xs font-bold text-slate-600">hrs/wk</span>
                         </span>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-slate-200 text-right">
-              <button
-                onClick={() => setIsSectionsModalOpen(false)}
-                className="px-5 py-2.5 bg-[#0B2545] text-white font-bold text-sm rounded-xl hover:bg-[#800000] shadow-sm"
-              >
-                Close Breakdown Modal
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ================= MODAL 2: DETAILED SCHEDULE MODAL ================= */}
-      {isScheduleModalOpen && selectedFacultyDetails && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-2xl w-full p-7 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto border-4 border-[#0B2545]">
-            <div className="flex items-center justify-between border-b-2 pb-4 border-slate-200">
-              <div>
-                <div className="text-xs font-black text-[#800000] uppercase tracking-wider">Faculty Schedule Breakdown</div>
-                <h3 className="text-2xl font-extrabold text-slate-900 font-heading">{selectedFacultyDetails.fullName}</h3>
-                <span className="text-sm font-extrabold text-[#0B2545]">Short Code: {selectedFacultyDetails.shortName}</span>
-              </div>
-              <button
-                onClick={() => setIsScheduleModalOpen(false)}
-                className="p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Total Summary */}
-            <div className="grid grid-cols-3 gap-3 p-4 bg-slate-100 rounded-2xl text-center border border-slate-200">
-              <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Total Workload</div>
-                <div className="text-2xl font-black text-[#800000] mt-0.5">{selectedFacultyDetails.calculatedOverallTotal} hrs/wk</div>
-              </div>
-              <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Theory / Tut / Lab</div>
-                <div className="text-sm font-extrabold text-slate-800 mt-1">
-                  {selectedFacultyDetails.overallTheoryHours}h / {includeTutorials ? selectedFacultyDetails.overallTutorialHours : 0}h / {selectedFacultyDetails.overallLabHours}h
+                  ))}
                 </div>
               </div>
-              <div>
-                <div className="text-xs font-bold text-slate-500 uppercase">Sections Taught</div>
-                <div className="text-base font-extrabold text-[#0B2545] mt-1">{selectedFacultyDetails.assignedSections.length} Sections</div>
-              </div>
-            </div>
+            )}
 
-            {/* Detailed Class Schedule List */}
-            <div className="space-y-3">
-              <h4 className="text-xs font-black text-[#0B2545] uppercase tracking-wider">Assigned Classes & Subjects</h4>
-              <div className="space-y-2.5">
-                {selectedFacultyDetails.classes?.map((c: any, i: number) => {
-                  const isTutExcluded = c.sessionType === 'Tutorial' && !includeTutorials;
-                  return (
-                    <div
-                      key={i}
-                      className={`p-4 rounded-2xl border-2 flex items-center justify-between ${
-                        isTutExcluded
-                          ? 'bg-slate-50 border-slate-200 opacity-60'
-                          : c.branch === selectedSection
-                          ? 'bg-amber-100/70 border-amber-400'
-                          : 'bg-white border-slate-200'
-                      }`}
-                    >
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2.5 py-0.5 bg-[#0B2545] text-white font-extrabold text-xs rounded-md">
-                            {c.branch}
-                          </span>
-                          <span className={`text-xs font-extrabold px-2.5 py-0.5 rounded-md ${
-                            c.sessionType === 'Lab' ? 'bg-amber-200 text-amber-950' : c.sessionType === 'Tutorial' ? 'bg-blue-200 text-blue-950' : 'bg-emerald-200 text-emerald-950'
-                          }`}>
-                            {c.sessionType}
+            {/* TAB 2: ASSIGNED SECTIONS BREAKDOWN */}
+            {modalActiveTab === 'sections' && (
+              <div className="space-y-3">
+                <div className="text-xs font-bold text-slate-600">
+                  Detailed workload breakdown per assigned program section:
+                </div>
+                
+                <div className="space-y-3">
+                  {sectionsModalFaculty.sectionBreakdownList?.map((secItem: any, idx: number) => {
+                    const isCurrentFilter = selectedSection !== 'ALL' && secItem.sectionName === selectedSection;
+
+                    return (
+                      <div
+                        key={idx}
+                        className={`p-4 rounded-2xl border-2 flex items-center justify-between transition-all ${
+                          isCurrentFilter
+                            ? 'bg-amber-100/90 border-amber-500 shadow-md ring-2 ring-amber-300'
+                            : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        <div className="space-y-1.5 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className={`px-3 py-1 font-extrabold text-sm rounded-lg ${
+                              isCurrentFilter ? 'bg-[#800000] text-white' : 'bg-[#0B2545] text-white'
+                            }`}>
+                              Section: {secItem.sectionName}
+                            </span>
+                            {isCurrentFilter && (
+                              <span className="text-xs font-bold px-2.5 py-0.5 bg-amber-200 text-amber-950 rounded-md border border-amber-400">
+                                Selected Filter
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Subjects taught in this section */}
+                          <div className="text-xs font-bold text-slate-700 pt-1 space-y-1">
+                            {secItem.classes.map((cls: any, ci: number) => (
+                              <div key={ci} className="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded-md border border-slate-200">
+                                <span className="text-slate-900 font-extrabold">• {cls.subjectName} ({cls.subjectShort})</span>
+                                <span className="text-slate-500 font-semibold">[{cls.sessionType}]</span>
+                                <span className="text-[#800000] font-black">({cls.effectiveHours} hrs/wk)</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Workload Pill */}
+                        <div className="text-right flex-shrink-0 bg-white p-3 rounded-xl border border-slate-200 shadow-sm ml-4">
+                          <div className="text-[10px] font-extrabold text-slate-500 uppercase">Section Load</div>
+                          <span className="text-2xl font-black text-[#800000]">
+                            {secItem.totalHours} <span className="text-xs font-bold text-slate-600">hrs/wk</span>
                           </span>
                         </div>
-                        <div className="text-base font-bold text-slate-900 mt-1">{c.subjectName}</div>
-                        {c.coFacultyList && (
-                          <div className="text-xs font-semibold text-slate-500 mt-0.5">Co-Teachers: {c.coFacultyList}</div>
-                        )}
                       </div>
-                      <div className="text-right">
-                        <span className={`text-lg font-black ${isTutExcluded ? 'line-through text-slate-400' : 'text-[#800000]'}`}>
-                          {c.hours} hrs/wk
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="pt-4 border-t border-slate-200 text-right">
+            {/* TAB 3: CLASS SCHEDULE */}
+            {modalActiveTab === 'schedule' && (
+              <div className="space-y-3">
+                <div className="text-xs font-bold text-slate-600">
+                  Complete list of assigned weekly teaching sessions and time slots:
+                </div>
+                
+                <div className="overflow-x-auto rounded-xl border-2 border-slate-200">
+                  <table className="w-full text-left border-collapse text-xs">
+                    <thead>
+                      <tr className="bg-[#0B2545] text-white font-extrabold">
+                        <th className="p-3">Program / Section</th>
+                        <th className="p-3">Subject Name</th>
+                        <th className="p-3">Code</th>
+                        <th className="p-3">Type</th>
+                        <th className="p-3 text-center">Weekly Load</th>
+                        <th className="p-3">Co-Faculty List</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 font-medium">
+                      {sectionsModalFaculty.classes?.map((c: any, ci: number) => (
+                        <tr key={ci} className="hover:bg-slate-50">
+                          <td className="p-3 font-extrabold text-[#0B2545]">{c.branch}</td>
+                          <td className="p-3 font-extrabold text-slate-900">{c.subjectName}</td>
+                          <td className="p-3 text-slate-600 font-bold">{c.subjectShort}</td>
+                          <td className="p-3">
+                            <span className={`px-2 py-0.5 rounded font-bold ${
+                              c.sessionType === 'Lab' ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                            }`}>
+                              {c.sessionType}
+                            </span>
+                          </td>
+                          <td className="p-3 text-center font-black text-[#800000]">{c.hours} hrs/wk</td>
+                          <td className="p-3 text-slate-500 font-medium">{c.coFacultyList || '—'}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
+              <div className="text-xs text-slate-500 font-medium hidden sm:block">
+                Switch view: <strong className="text-slate-800">Subjects</strong>, <strong className="text-slate-800">Sections</strong>, or <strong className="text-slate-800">Schedule</strong> tabs above.
+              </div>
               <button
-                onClick={() => setIsScheduleModalOpen(false)}
-                className="px-5 py-2.5 bg-slate-800 text-white font-bold text-sm rounded-xl hover:bg-slate-900 shadow-sm"
+                onClick={() => setIsSectionsModalOpen(false)}
+                className="px-5 py-2.5 bg-[#0B2545] text-white font-bold text-sm rounded-xl hover:bg-[#800000] shadow-sm transition-colors ml-auto"
               >
-                Close Schedule
+                Close Modal
               </button>
             </div>
           </div>

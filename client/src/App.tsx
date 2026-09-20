@@ -599,103 +599,99 @@ export default function App() {
           </div>
         )}
 
-        {/* FACULTY WORKLOAD TABLE */}
+        {/* FACULTY WORKLOAD TABLE (HIGH-CONTRAST PRINT-STYLE WEBPAGE DESIGN) */}
         {activeTab === 'workload' && (
-          <div className="bg-white rounded-2xl border-2 border-slate-200 shadow-md overflow-hidden">
-            <div className="p-5 bg-slate-100 border-b-2 border-slate-200 flex items-center justify-between">
-              <h3 className="text-lg font-extrabold text-[#800000] font-heading flex items-center gap-2">
-                <Users className="w-6 h-6 text-[#800000]" />
+          <div className="bg-white rounded-2xl border-4 border-slate-900 shadow-xl overflow-hidden">
+            <div className="p-5 bg-slate-900 text-white border-b-4 border-slate-900 flex items-center justify-between">
+              <h3 className="text-xl font-extrabold text-amber-300 font-heading flex items-center gap-2">
+                <Users className="w-6 h-6 text-amber-400" />
                 Official Faculty Workload Breakdown Table
               </h3>
-              <span className="text-xs font-extrabold text-[#0B2545] bg-white px-3 py-1.5 rounded-lg border border-slate-300 shadow-sm">
+              <span className="text-xs font-black text-slate-900 bg-amber-400 px-3 py-1.5 rounded-lg border border-amber-500 shadow-sm">
                 Showing {workloadStats.facultyList.length} Faculty Members
               </span>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse border-2 border-black">
                 <thead>
-                  <tr className="bg-[#0B2545] text-white text-xs font-black uppercase tracking-wider">
-                    <th className="p-4">Faculty Member</th>
-                    <th className="p-4">Short Code</th>
+                  <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black">
+                    <th className="border border-black p-4">Faculty Member</th>
+                    <th className="border border-black p-4 text-center">Short Code</th>
                     {selectedSection !== 'ALL' && (
-                      <th className="p-4 text-amber-300 bg-blue-950 border-x border-blue-900">
+                      <th className="border border-black p-4 text-amber-300 bg-black text-center font-black">
                         Section ({selectedSection}) Load
                       </th>
                     )}
-                    <th className="p-4">Overall Total Workload</th>
-                    <th className="p-4">Theory / Tut / Lab Breakdown</th>
-                    <th className="p-4">Assigned Sections</th>
-                    <th className="p-4 text-center">Action</th>
+                    <th className="border border-black p-4 text-center">Overall Total Workload</th>
+                    <th className="border border-black p-4 text-center">Theory / Tut / Lab Breakdown</th>
+                    <th className="border border-black p-4">Assigned Sections & Subjects</th>
+                    <th className="border border-black p-4 text-center">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y-2 divide-slate-100 text-base">
+                <tbody className="divide-y-2 divide-black text-base font-sans">
                   {workloadStats.facultyList.map(f => (
-                    <tr key={f.id || f.shortName} className="hover:bg-slate-50/80 transition-colors">
+                    <tr key={f.id || f.shortName} className="hover:bg-slate-100/90 transition-colors">
                       
                       {/* Faculty Full Name */}
-                      <td className="p-4 font-bold text-slate-900 text-base">
+                      <td className="border border-black p-4 font-black text-slate-900 text-base">
                         {f.fullName}
                       </td>
 
                       {/* Short Code Badge */}
-                      <td className="p-4">
-                        <span className="inline-block px-3 py-1 bg-red-100 text-[#800000] font-extrabold text-xs rounded-lg border border-red-300 shadow-sm">
+                      <td className="border border-black p-4 text-center">
+                        <span className="inline-block px-3 py-1 bg-red-100 text-[#800000] font-black text-sm rounded-lg border border-red-300 shadow-sm">
                           {f.shortName}
                         </span>
                       </td>
 
                       {/* Section Workload (When Section Filter Active) */}
                       {selectedSection !== 'ALL' && (
-                        <td className="p-4 bg-amber-50/60 font-bold text-[#800000] border-x border-amber-200">
-                          <span className="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-black bg-amber-200 text-amber-950 border border-amber-400 shadow-sm">
+                        <td className="border border-black p-4 bg-amber-100/90 font-black text-black text-center border-x border-amber-300">
+                          <span className="inline-flex items-center px-3 py-1.5 rounded-lg text-base font-black bg-amber-300 text-amber-950 border border-amber-500 shadow-sm">
                             {f.calculatedSectionTotal} hrs / wk
                           </span>
                         </td>
                       )}
 
                       {/* Overall Total Workload */}
-                      <td className="p-4 font-black text-[#0B2545] text-lg">
-                        {f.calculatedOverallTotal} <span className="text-xs font-bold text-slate-500">hrs/wk</span>
+                      <td className="border border-black p-4 text-center font-black text-[#0B2545] text-lg bg-slate-50">
+                        {f.calculatedOverallTotal} <span className="text-xs font-bold text-slate-600">hrs/wk</span>
                       </td>
 
                       {/* Breakdown */}
-                      <td className="p-4 text-xs font-bold text-slate-700">
-                        <span className="text-emerald-800 font-extrabold">{f.overallTheoryHours}h</span> Theory |{' '}
-                        <span className={`font-extrabold ${includeTutorials ? 'text-blue-800' : 'text-slate-400 line-through'}`}>
+                      <td className="border border-black p-4 text-center text-xs font-bold text-slate-800">
+                        <span className="text-emerald-900 font-extrabold text-sm">{f.overallTheoryHours}h</span> Theory |{' '}
+                        <span className={`font-extrabold text-sm ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
                           {f.overallTutorialHours}h
                         </span> Tut |{' '}
-                        <span className="text-amber-800 font-extrabold">{f.overallLabHours}h</span> Lab
+                        <span className="text-amber-900 font-extrabold text-sm">{f.overallLabHours}h</span> Lab
                       </td>
 
-                      {/* Assigned Sections Column with Click Here Modal Button */}
-                      <td className="p-4">
-                        <div className="flex flex-col gap-1.5 items-start">
-                          {selectedSection !== 'ALL' ? (
-                            <div className="flex items-center gap-2">
-                              <span className="px-2.5 py-1 bg-[#800000] text-white font-extrabold text-xs rounded-md shadow-sm">
-                                {selectedSection}: {f.calculatedSectionTotal} hrs
+                      {/* Assigned Sections & Assigned Subjects Column */}
+                      <td className="border border-black p-4">
+                        <div className="flex flex-col gap-2 items-start">
+                          <div className="flex flex-wrap gap-1.5">
+                            {f.sectionBreakdownList?.map((secItem: any, si: number) => (
+                              <span key={si} className="px-2.5 py-1 bg-[#0B2545] text-white font-extrabold text-xs rounded-md shadow-sm">
+                                {secItem.sectionName}: {secItem.totalHours}h
                               </span>
-                            </div>
-                          ) : (
-                            <span className="text-xs font-bold text-[#0B2545]">
-                              {f.assignedSections.length} Sections Assigned
-                            </span>
-                          )}
+                            ))}
+                          </div>
 
-                          {/* CLICK HERE BUTTON FOR ASSIGNED SECTIONS */}
+                          {/* CLICK HERE BUTTON FOR ASSIGNED SECTIONS & SUBJECTS */}
                           <button
                             onClick={() => openSectionsModal(f)}
-                            className="px-3 py-1 bg-amber-100 hover:bg-amber-200 text-amber-950 font-extrabold text-xs rounded-lg border border-amber-300 transition-colors flex items-center gap-1 shadow-sm mt-0.5"
+                            className="px-3.5 py-1.5 bg-amber-200 hover:bg-amber-300 text-amber-950 font-black text-xs rounded-xl border-2 border-amber-400 transition-colors flex items-center gap-1.5 shadow-sm mt-1"
                           >
-                            <Layers className="w-3.5 h-3.5 text-[#800000]" />
-                            Click Here for Sections Breakdown ({f.assignedSections.length})
+                            <Layers className="w-4 h-4 text-[#800000]" />
+                            Click Here for Sections & Subjects Breakdown ({f.assignedSections.length} Sections)
                           </button>
                         </div>
                       </td>
 
                       {/* View Schedule Action Button */}
-                      <td className="p-4 text-center">
+                      <td className="border border-black p-4 text-center">
                         <button
                           onClick={() => openScheduleModal(f)}
                           className="px-4 py-2 bg-[#0B2545] text-white text-xs font-extrabold rounded-xl hover:bg-[#800000] transition-colors flex items-center gap-1.5 mx-auto shadow-sm"

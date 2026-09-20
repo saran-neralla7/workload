@@ -959,18 +959,8 @@ export default function App() {
               <table className="w-full text-left border-collapse border-2 border-black">
                 <thead>
                   <tr className="bg-slate-900 text-white text-xs font-black uppercase tracking-wider border-b-2 border-black select-none">
-                    <th
-                      onClick={() => handleSort('sno')}
-                      className="border border-black p-3.5 text-center w-14 cursor-pointer hover:bg-slate-800 transition-colors"
-                    >
-                      <div className="flex items-center justify-center gap-1">
-                        <span>S.No</span>
-                        {sortField === 'sno' ? (
-                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
-                        ) : (
-                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
-                        )}
-                      </div>
+                    <th className="border border-black p-3.5 text-center w-14">
+                      S.No
                     </th>
                     <th
                       onClick={() => handleSort('faculty')}
@@ -985,18 +975,8 @@ export default function App() {
                         )}
                       </div>
                     </th>
-                    <th
-                      onClick={() => handleSort('shortCode')}
-                      className="border border-black p-3.5 text-center w-28 cursor-pointer hover:bg-slate-800 transition-colors"
-                    >
-                      <div className="flex items-center justify-center gap-1">
-                        <span>Short Code</span>
-                        {sortField === 'shortCode' ? (
-                          sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
-                        ) : (
-                          <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
-                        )}
-                      </div>
+                    <th className="border border-black p-3.5 text-center w-28">
+                      Short Code
                     </th>
                     {selectedSection === 'ALL' ? (
                       <th

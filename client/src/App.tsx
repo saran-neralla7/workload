@@ -240,9 +240,22 @@ export default function App() {
     };
   }, [allFacultyData, includeTutorials]);
 
-  // Compute Section Master Timetable View (Screenshot 2 Excel-style web page)
+  // Compute Section Master Timetable View (Exact Excel-style merged rows web page)
   const sectionMasterTimetables = React.useMemo(() => {
     const sectionMap: { [sec: string]: any[] } = {};
+
+    // Build comprehensive shortName / ID -> fullName lookup map
+    const shortToFullMap: { [code: string]: string } = {};
+    allFacultyData.forEach(f => {
+      if (f.shortName) {
+        shortToFullMap[f.shortName] = f.fullName;
+        shortToFullMap[f.shortName.toLowerCase()] = f.fullName;
+      }
+      if (f.id) {
+        shortToFullMap[f.id] = f.fullName;
+        shortToFullMap[f.id.toLowerCase()] = f.fullName;
+      }
+    });
 
     allFacultyData.forEach(fac => {
       fac.classes.forEach((c: any) => {
@@ -251,25 +264,53 @@ export default function App() {
           sectionMap[sec] = [];
         }
 
-        let existing = sectionMap[sec].find(
-          item => item.subjectName === c.subjectName && item.sessionType === c.sessionType
-        );
+        const subKey = (c.subjectName || c.subjectShort || '').trim().toLowerCase();
+        const typeKey = (c.sessionType || 'Theory').trim().toLowerCase();
+
+        let existing = sectionMap[sec].find(item => {
+          const itemSub = (item.subjectName || item.subjectShort || '').trim().toLowerCase();
+          const itemType = (item.sessionType || 'Theory').trim().toLowerCase();
+          return itemSub === subKey && itemType === typeKey;
+        });
+
+        // Extract all co-faculty codes from coFacultyList
+        const coCodes = c.coFacultyList
+          ? String(c.coFacultyList).split(/[\r\n,\/]+/).map(s => s.trim()).filter(Boolean)
+          : [];
 
         if (existing) {
-          if (!existing.facultyList.some((f: any) => f.shortName === fac.shortName)) {
+          // Merge lead faculty
+          if (!existing.facultyList.some((f: any) => f.shortName.toLowerCase() === fac.shortName.toLowerCase())) {
             existing.facultyList.push({ fullName: fac.fullName, shortName: fac.shortName });
           }
+          // Merge co-faculty
+          coCodes.forEach(code => {
+            if (!existing.facultyList.some((f: any) => f.shortName.toLowerCase() === code.toLowerCase())) {
+              const full = shortToFullMap[code] || shortToFullMap[code.toLowerCase()] || code;
+              existing.facultyList.push({ fullName: full, shortName: code });
+            }
+          });
         } else {
+          const initialFacultyList: any[] = [{ fullName: fac.fullName, shortName: fac.shortName }];
+
+          coCodes.forEach(code => {
+            if (!initialFacultyList.some((f: any) => f.shortName.toLowerCase() === code.toLowerCase())) {
+              const full = shortToFullMap[code] || shortToFullMap[code.toLowerCase()] || code;
+              initialFacultyList.push({ fullName: full, shortName: code });
+            }
+          });
+
           sectionMap[sec].push({
             branch: c.branch,
-            roomNo: c.roomNo || (c.sessionType === 'Lab' ? `${c.subjectShort || 'COMP'} LAB` : 'G-204'),
+            roomNo: c.roomNo || (c.sessionType === 'Lab' ? (c.subjectShort ? `${c.subjectShort} LAB` : 'COMP LAB') : 'G-204'),
             subjectName: c.subjectName,
             subjectShort: c.subjectShort,
+            sessionType: c.sessionType,
             theoryHours: c.sessionType === 'Theory' ? c.hours : 0,
             tutorialHours: c.sessionType === 'Tutorial' ? c.hours : 0,
             labHours: c.sessionType === 'Lab' ? c.hours : 0,
-            frequency: 1,
-            facultyList: [{ fullName: fac.fullName, shortName: fac.shortName }],
+            frequency: c.frequency || 1,
+            facultyList: initialFacultyList,
             coFacultyText: c.coFacultyList || ''
           });
         }

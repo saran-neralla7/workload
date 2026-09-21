@@ -1069,35 +1069,6 @@ export default function App() {
                     <th className="border border-black p-2 text-center w-24">
                       Short Code
                     </th>
-                    {selectedSection === 'ALL' ? (
-                      <th
-                        onClick={() => handleSort('assignedSections')}
-                        className="border border-black p-2 text-left cursor-pointer hover:bg-slate-800 transition-colors"
-                      >
-                        <div className="flex items-center gap-1">
-                          <span>Subject / Branch / Periods</span>
-                          {sortField === 'assignedSections' ? (
-                            sortOrder === 'asc' ? <ArrowUp className="w-3 h-3 text-amber-400" /> : <ArrowDown className="w-3 h-3 text-amber-400" />
-                          ) : (
-                            <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
-                          )}
-                        </div>
-                      </th>
-                    ) : (
-                      <th
-                        onClick={() => handleSort('sectionLoad')}
-                        className="border border-black p-2 text-amber-300 bg-black text-center font-black cursor-pointer hover:bg-slate-900 transition-colors"
-                      >
-                        <div className="flex items-center justify-center gap-1">
-                          <span>Section ({selectedSection}) Load</span>
-                          {sortField === 'sectionLoad' ? (
-                            sortOrder === 'asc' ? <ArrowUp className="w-3 h-3 text-amber-400" /> : <ArrowDown className="w-3 h-3 text-amber-400" />
-                          ) : (
-                            <ArrowUpDown className="w-3 h-3 text-amber-300 opacity-60" />
-                          )}
-                        </div>
-                      </th>
-                    )}
                     <th
                       onClick={() => handleSort('theory')}
                       className="border border-black p-2 text-center w-20 cursor-pointer hover:bg-slate-800 transition-colors"
@@ -1150,6 +1121,35 @@ export default function App() {
                         )}
                       </div>
                     </th>
+                    {selectedSection === 'ALL' ? (
+                      <th
+                        onClick={() => handleSort('assignedSections')}
+                        className="border border-black p-2 text-left cursor-pointer hover:bg-slate-800 transition-colors"
+                      >
+                        <div className="flex items-center gap-1">
+                          <span>Subject / Branch / Periods</span>
+                          {sortField === 'assignedSections' ? (
+                            sortOrder === 'asc' ? <ArrowUp className="w-3 h-3 text-amber-400" /> : <ArrowDown className="w-3 h-3 text-amber-400" />
+                          ) : (
+                            <ArrowUpDown className="w-3 h-3 text-slate-400 opacity-60" />
+                          )}
+                        </div>
+                      </th>
+                    ) : (
+                      <th
+                        onClick={() => handleSort('sectionLoad')}
+                        className="border border-black p-2 text-amber-300 bg-black text-center font-black cursor-pointer hover:bg-slate-900 transition-colors"
+                      >
+                        <div className="flex items-center justify-center gap-1">
+                          <span>Section ({selectedSection}) Load</span>
+                          {sortField === 'sectionLoad' ? (
+                            sortOrder === 'asc' ? <ArrowUp className="w-3 h-3 text-amber-400" /> : <ArrowDown className="w-3 h-3 text-amber-400" />
+                          ) : (
+                            <ArrowUpDown className="w-3 h-3 text-amber-300 opacity-60" />
+                          )}
+                        </div>
+                      </th>
+                    )}
                     <th className="border border-black p-2 text-center w-28">Action</th>
                   </tr>
                 </thead>
@@ -1170,6 +1170,26 @@ export default function App() {
                       {/* Short Code as Simple Plain Text matching Screenshot 2 */}
                       <td className="border border-black p-2 text-center font-extrabold text-[#800000] text-xs whitespace-nowrap">
                         {f.shortName}
+                      </td>
+
+                      {/* Theory Hours Column */}
+                      <td className="border border-black p-2 text-center font-black text-emerald-900 text-xs whitespace-nowrap">
+                        {selectedSection !== 'ALL' ? f.sectionTheoryHours : f.overallTheoryHours} <span className="text-[10px] font-bold text-slate-500">hrs</span>
+                      </td>
+
+                      {/* Tutorial Hours Column */}
+                      <td className={`border border-black p-2 text-center font-black text-xs whitespace-nowrap ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
+                        {includeTutorials ? (selectedSection !== 'ALL' ? f.sectionTutorialHours : f.overallTutorialHours) : 0} <span className="text-[10px] font-bold text-slate-500">hrs</span>
+                      </td>
+
+                      {/* Lab Hours Column */}
+                      <td className="border border-black p-2 text-center font-black text-amber-900 text-xs whitespace-nowrap">
+                        {selectedSection !== 'ALL' ? f.sectionLabHours : f.overallLabHours} <span className="text-[10px] font-bold text-slate-500">hrs</span>
+                      </td>
+
+                      {/* Overall Total Workload */}
+                      <td className="border border-black p-2 text-center font-black text-[#800000] text-xs bg-amber-50 whitespace-nowrap">
+                        {f.calculatedOverallTotal} <span className="text-[10px] font-bold text-slate-500">hrs/wk</span>
                       </td>
 
                       {/* Subject / Branch / Periods (When ALL) OR Section Load (When Section Filter Active) */}
@@ -1194,26 +1214,6 @@ export default function App() {
                           </span>
                         </td>
                       )}
-
-                      {/* Theory Hours Column */}
-                      <td className="border border-black p-2 text-center font-black text-emerald-900 text-xs whitespace-nowrap">
-                        {selectedSection !== 'ALL' ? f.sectionTheoryHours : f.overallTheoryHours} <span className="text-[10px] font-bold text-slate-500">hrs</span>
-                      </td>
-
-                      {/* Tutorial Hours Column */}
-                      <td className={`border border-black p-2 text-center font-black text-xs whitespace-nowrap ${includeTutorials ? 'text-blue-900' : 'text-slate-400 line-through'}`}>
-                        {includeTutorials ? (selectedSection !== 'ALL' ? f.sectionTutorialHours : f.overallTutorialHours) : 0} <span className="text-[10px] font-bold text-slate-500">hrs</span>
-                      </td>
-
-                      {/* Lab Hours Column */}
-                      <td className="border border-black p-2 text-center font-black text-amber-900 text-xs whitespace-nowrap">
-                        {selectedSection !== 'ALL' ? f.sectionLabHours : f.overallLabHours} <span className="text-[10px] font-bold text-slate-500">hrs</span>
-                      </td>
-
-                      {/* Overall Total Workload */}
-                      <td className="border border-black p-2 text-center font-black text-[#800000] text-xs bg-amber-50 whitespace-nowrap">
-                        {f.calculatedOverallTotal} <span className="text-[10px] font-bold text-slate-500">hrs/wk</span>
-                      </td>
 
                       {/* View Schedule Action Button */}
                       <td className="border border-black p-2 text-center whitespace-nowrap">

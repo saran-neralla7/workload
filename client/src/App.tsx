@@ -46,6 +46,109 @@ export const inferDepartment = (fac: any): string => {
   return 'Computer Science & Engineering (CSE)';
 };
 
+export interface AssignmentLine {
+  branch: string;
+  subjectName: string;
+  subjectShort: string;
+  fullSubjectStr: string;
+  periodsText: string;
+  rawText: string;
+}
+
+export const getFacultyFormattedAssignments = (fac: any, includeTutorials: boolean, activeSection: string = 'ALL'): AssignmentLine[] => {
+  if (!fac || !fac.classes || !Array.isArray(fac.classes)) return [];
+
+  let targetClasses = fac.classes;
+  if (activeSection && activeSection !== 'ALL') {
+    targetClasses = fac.classes.filter(
+      (c: any) => c.branch && c.branch.toUpperCase() === activeSection.toUpperCase()
+    );
+  }
+
+  const map: {
+    [key: string]: {
+      branch: string;
+      subjectName: string;
+      subjectShort: string;
+      theory: number;
+      tutorial: number;
+      lab: number;
+      other: number;
+    };
+  } = {};
+
+  targetClasses.forEach((c: any) => {
+    const branch = (c.branch || '').trim();
+    const subjectName = (c.subjectName || '').trim();
+    const subjectShort = (c.subjectShort || '').trim();
+    const key = `${branch}||${subjectName}||${subjectShort}`;
+
+    if (!map[key]) {
+      map[key] = {
+        branch,
+        subjectName,
+        subjectShort,
+        theory: 0,
+        tutorial: 0,
+        lab: 0,
+        other: 0,
+      };
+    }
+
+    const hrs = c.hours || 0;
+    if (c.sessionType === 'Theory') {
+      map[key].theory += hrs;
+    } else if (c.sessionType === 'Tutorial') {
+      map[key].tutorial += hrs;
+    } else if (c.sessionType === 'Lab') {
+      map[key].lab += hrs;
+    } else {
+      map[key].other += hrs;
+    }
+  });
+
+  const lines: AssignmentLine[] = [];
+
+  Object.values(map).forEach(item => {
+    const { branch, subjectName, subjectShort, theory, tutorial, lab, other } = item;
+    
+    let fullSubjectStr = subjectName;
+    if (subjectShort && subjectShort.toLowerCase() !== subjectName.toLowerCase()) {
+      fullSubjectStr = `${subjectName} (${subjectShort})`;
+    }
+
+    let periodsText = '';
+    const tutHrs = includeTutorials ? tutorial : 0;
+
+    if (theory > 0 && tutHrs > 0) {
+      const total = theory + tutHrs;
+      periodsText = `${theory} theory + ${tutHrs} tutorial = ${total} periods`;
+    } else if (theory > 0 && tutHrs === 0) {
+      periodsText = `${theory} periods`;
+    } else if (lab > 0 && theory === 0 && tutHrs === 0) {
+      periodsText = `${lab} periods`;
+    } else if (tutHrs > 0 && theory === 0 && lab === 0) {
+      periodsText = `${tutHrs} tutorial periods`;
+    } else {
+      const total = theory + tutHrs + lab + other;
+      periodsText = `${total} periods`;
+    }
+
+    const rawText = `${branch} → ${fullSubjectStr} - ${periodsText}`;
+
+    lines.push({
+      branch,
+      subjectName,
+      subjectShort,
+      fullSubjectStr,
+      periodsText,
+      rawText,
+    });
+  });
+
+  return lines;
+};
+
 export default function App() {
   const [sections, setSections] = useState<string[]>([]);
   const [selectedSection, setSelectedSection] = useState<string>('ALL');
@@ -972,7 +1075,7 @@ export default function App() {
                         className="border border-black p-3.5 text-center cursor-pointer hover:bg-slate-800 transition-colors"
                       >
                         <div className="flex items-center justify-center gap-1">
-                          <span>Assigned Sections</span>
+                          <span>Subject / Branch / Periods</span>
                           {sortField === 'assignedSections' ? (
                             sortOrder === 'asc' ? <ArrowUp className="w-3.5 h-3.5 text-amber-400" /> : <ArrowDown className="w-3.5 h-3.5 text-amber-400" />
                           ) : (
@@ -1052,36 +1155,37 @@ export default function App() {
                 </thead>
                 <tbody className="divide-y-2 divide-black text-base font-sans">
                   {workloadStats.facultyList.map((f, idx) => (
-                    <tr key={f.id || f.shortName} className="hover:bg-slate-100/90 transition-colors whitespace-nowrap">
+                    <tr key={f.id || f.shortName} className="hover:bg-slate-100/90 transition-colors">
                       
                       {/* S.No */}
-                      <td className="border border-black p-3.5 text-center font-black text-slate-900 text-sm">
+                      <td className="border border-black p-3.5 text-center font-black text-slate-900 text-sm whitespace-nowrap">
                         {idx + 1}
                       </td>
 
                       {/* Faculty Full Name */}
-                      <td className="border border-black p-3.5 font-black text-slate-900 text-base">
+                      <td className="border border-black p-3.5 font-black text-slate-900 text-base whitespace-nowrap">
                         {f.fullName}
                       </td>
 
                       {/* Short Code Badge */}
-                      <td className="border border-black p-3.5 text-center">
+                      <td className="border border-black p-3.5 text-center whitespace-nowrap">
                         <span className="inline-block px-3 py-1 bg-red-100 text-[#800000] font-black text-sm rounded-lg border border-red-300 shadow-sm">
                           {f.shortName}
                         </span>
                       </td>
 
-                      {/* Assigned Sections (When ALL) OR Section Load (When Section Filter Active) */}
+                      {/* Subject / Branch / Periods (When ALL) OR Section Load (When Section Filter Active) */}
                       {selectedSection === 'ALL' ? (
-                        <td className="border border-black p-3 text-center">
-                          <div className="flex flex-wrap justify-center gap-1.5 max-w-[260px] mx-auto">
-                            {f.assignedSections.map((sec: string, si: number) => (
-                              <span
-                                key={si}
-                                className="px-2.5 py-0.5 bg-blue-100 text-[#0B2545] font-extrabold text-xs rounded-md border border-blue-200 shadow-2xs whitespace-nowrap"
-                              >
-                                {sec}
-                              </span>
+                        <td className="border border-black p-3 text-left bg-white font-sans min-w-[320px]">
+                          <div className="space-y-1 text-xs font-medium">
+                            {getFacultyFormattedAssignments(f, includeTutorials, selectedSection).map((line: AssignmentLine, li: number) => (
+                              <div key={li} className="flex items-center gap-1.5 leading-snug flex-wrap text-slate-900">
+                                <span className="font-black text-[#0B2545]">{line.branch}</span>
+                                <span className="font-bold text-[#800000]">→</span>
+                                <span className="font-bold text-slate-900">{line.fullSubjectStr}</span>
+                                <span className="text-slate-400 font-bold">-</span>
+                                <span className="font-semibold text-emerald-900 whitespace-nowrap">{line.periodsText}</span>
+                              </div>
                             ))}
                           </div>
                         </td>
@@ -1853,51 +1957,53 @@ export default function App() {
           </div>
         </div>
 
-        {/* Excel/Word Style High Contrast Dark Border Table */}
-        <table className="w-full border-collapse border-2 border-black text-xs">
+        {/* Excel/Word Style High Contrast Dark Border Table (Matches Screenshot 1 Print Report) */}
+        <table className="w-full border-collapse border-2 border-black text-xs font-sans">
           <thead>
-            <tr className="bg-slate-900 text-white font-black uppercase border-b-2 border-black text-sm">
-              <th className="border border-black p-2.5 text-center w-12">S.No</th>
-              <th className="border border-black p-2.5 text-left">Faculty Name</th>
-              <th className="border border-black p-2.5 text-center w-20">Code</th>
-              {selectedSection !== 'ALL' && (
-                <th className="border border-black p-2.5 text-center bg-black text-amber-300 font-black">
-                  Section ({selectedSection}) Load
-                </th>
-              )}
-              <th className="border border-black p-2.5 text-center w-20">Theory</th>
-              <th className="border border-black p-2.5 text-center w-20">Tutorial</th>
-              <th className="border border-black p-2.5 text-center w-20">Lab</th>
-              <th className="border border-black p-2.5 text-center font-black w-28 text-amber-300 bg-black">Total Workload</th>
-              <th className="border border-black p-2.5 text-left">Assigned Sections Breakdown</th>
+            <tr className="bg-slate-900 text-white font-black uppercase border-b-2 border-black text-xs">
+              <th className="border border-black p-2 text-center w-10">S.No</th>
+              <th className="border border-black p-2 text-left">Faculty Name</th>
+              <th className="border border-black p-2 text-center w-24">Faculty Short Name</th>
+              <th className="border border-black p-2 text-center w-16">Theory Workload</th>
+              <th className="border border-black p-2 text-center w-16">Lab Workload</th>
+              <th className="border border-black p-2 text-center w-16">Tutorial Workload</th>
+              <th className="border border-black p-2 text-center font-black w-20 bg-slate-950 text-white">Total Workload</th>
+              <th className="border border-black p-2 text-center font-black w-20 bg-slate-950 text-white">Total Periods</th>
+              <th className="border border-black p-2 text-left">Subject / Branch / Periods</th>
             </tr>
           </thead>
           <tbody>
-            {workloadStats.facultyList.map((fac: any, index: number) => (
-              <tr key={fac.id || index} className={index % 2 === 1 ? 'bg-slate-100/70' : 'bg-white'}>
-                <td className="border border-black p-2 text-center font-bold text-sm">{index + 1}</td>
-                <td className="border border-black p-2 font-black text-sm text-slate-900">{fac.fullName}</td>
-                <td className="border border-black p-2 text-center font-extrabold text-sm">{fac.shortName}</td>
-                {selectedSection !== 'ALL' && (
-                  <td className="border border-black p-2 text-center font-black text-sm bg-amber-100 text-black">
-                    {fac.calculatedSectionTotal} hrs/wk
+            {workloadStats.facultyList.map((fac: any, index: number) => {
+              const assignments = getFacultyFormattedAssignments(fac, includeTutorials, selectedSection);
+              const theoryHours = selectedSection !== 'ALL' ? fac.sectionTheoryHours : fac.overallTheoryHours;
+              const tutHours = includeTutorials ? (selectedSection !== 'ALL' ? fac.sectionTutorialHours : fac.overallTutorialHours) : 0;
+              const labHours = selectedSection !== 'ALL' ? fac.sectionLabHours : fac.overallLabHours;
+              const total = selectedSection !== 'ALL' ? fac.calculatedSectionTotal : fac.calculatedOverallTotal;
+
+              return (
+                <tr key={fac.id || index} className={index % 2 === 1 ? 'bg-slate-100/70' : 'bg-white'}>
+                  <td className="border border-black p-2 text-center font-bold text-xs">{index + 1}</td>
+                  <td className="border border-black p-2 font-black text-xs text-slate-900">{fac.fullName}</td>
+                  <td className="border border-black p-2 text-center font-extrabold text-xs">{fac.shortName}</td>
+                  <td className="border border-black p-2 text-center font-bold text-xs">{theoryHours}</td>
+                  <td className="border border-black p-2 text-center font-bold text-xs">{labHours}</td>
+                  <td className="border border-black p-2 text-center font-bold text-xs">{tutHours}</td>
+                  <td className="border border-black p-2 text-center font-black text-xs text-black bg-amber-50">{total}</td>
+                  <td className="border border-black p-2 text-center font-black text-xs text-black bg-amber-50">{total}</td>
+                  <td className="border border-black p-2 font-medium text-[11px] leading-snug text-slate-900">
+                    {assignments.length === 0 ? (
+                      <span>—</span>
+                    ) : (
+                      assignments.map((line: AssignmentLine, li: number) => (
+                        <div key={li} className="whitespace-normal">
+                          {line.rawText}
+                        </div>
+                      ))
+                    )}
                   </td>
-                )}
-                <td className="border border-black p-2 text-center font-bold text-xs">{fac.overallTheoryHours} hrs</td>
-                <td className="border border-black p-2 text-center font-bold text-xs">{includeTutorials ? fac.overallTutorialHours : 0} hrs</td>
-                <td className="border border-black p-2 text-center font-bold text-xs">{fac.overallLabHours} hrs</td>
-                <td className="border border-black p-2 text-center font-black text-sm text-black">
-                  {fac.calculatedOverallTotal} hrs/wk
-                </td>
-                <td className="border border-black p-2 font-bold text-xs">
-                  {fac.sectionBreakdownList && fac.sectionBreakdownList.length > 0 ? (
-                    fac.sectionBreakdownList.map((sec: any) => `${sec.sectionName}: ${sec.totalHours}h`).join(' | ')
-                  ) : (
-                    fac.assignedSections.join(', ')
-                  )}
-                </td>
-              </tr>
-            ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
 

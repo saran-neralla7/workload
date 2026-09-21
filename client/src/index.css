@@ -31,10 +31,10 @@ h1, h2, .font-heading {
 .text-gvp-gold { color: var(--gvp-gold); }
 .border-gvp-gold { border-color: var(--gvp-gold); }
 
-/* Print Specific Styles for Professional Executive College Report */
+/* Print Specific Styles for Professional Executive College Report (A4 Landscape - Target 7-8 Pages) */
 @media print {
   @page {
-    size: A4 portrait;
+    size: A4 landscape;
     margin: 6mm 8mm 6mm 8mm;
   }
   
@@ -43,7 +43,7 @@ h1, h2, .font-heading {
     color: black !important;
     font-family: 'Times New Roman', Times, serif !important;
     font-size: 8.5pt !important;
-    line-height: 1.15 !important;
+    line-height: 1.25 !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -75,14 +75,15 @@ h1, h2, .font-heading {
     width: 100% !important;
     border-collapse: collapse !important;
     border: 1px solid #000000 !important;
+    table-layout: auto !important;
   }
 
   table.print-table th, table th {
-    background-color: #f3f4f6 !important;
+    background-color: #f1f5f9 !important;
     color: #000000 !important;
     border: 1px solid #000000 !important;
-    padding: 3px 4px !important;
-    font-size: 8.5pt !important;
+    padding: 3.5px 5px !important;
+    font-size: 9pt !important;
     font-weight: bold !important;
     text-align: center !important;
     -webkit-print-color-adjust: exact !important;
@@ -91,9 +92,9 @@ h1, h2, .font-heading {
 
   table.print-table td, table td {
     border: 1px solid #000000 !important;
-    padding: 2px 4px !important;
-    font-size: 8pt !important;
-    line-height: 1.15 !important;
+    padding: 3px 5px !important;
+    font-size: 8.5pt !important;
+    line-height: 1.25 !important;
     color: #000000 !important;
   }
 

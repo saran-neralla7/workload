@@ -1904,7 +1904,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* ================= DEDICATED PRINT-ONLY OFFICIAL REPORT (A4 PORTRAIT HIGH DENSITY) ================= */}
+      {/* ================= DEDICATED PRINT-ONLY OFFICIAL REPORT (A4 LANDSCAPE TARGET 7-8 PAGES) ================= */}
       <div className="hidden print:block w-full text-black font-serif leading-tight bg-white p-0">
         {/* Institutional Print Header */}
         <div className="border-b border-black pb-1.5 mb-2">
@@ -1954,18 +1954,18 @@ export default function App() {
           </div>
         </div>
 
-        {/* Compact High Density Print Table (Matches Reference 6-Page PDF Layout) */}
-        <table className="print-table w-full border-collapse border border-black text-[9.5px] font-serif">
+        {/* High Contrast Landscape Print Table (Target 7-8 Pages) */}
+        <table className="print-table w-full border-collapse border border-black text-[8.5pt] font-serif">
           <thead>
-            <tr className="bg-slate-100 text-black font-bold uppercase border-b border-black text-[9px]">
+            <tr className="bg-slate-100 text-black font-bold uppercase border-b border-black text-[9pt]">
               <th className="border border-black px-1 py-1 text-center w-8">S.No</th>
-              <th className="border border-black px-1.5 py-1 text-left">Faculty Name</th>
+              <th className="border border-black px-1.5 py-1 text-left w-44">Faculty Name</th>
               <th className="border border-black px-1 py-1 text-center w-20">Faculty Short Name</th>
-              <th className="border border-black px-1 py-1 text-center w-12">Theory Workload</th>
-              <th className="border border-black px-1 py-1 text-center w-12">Lab Workload</th>
-              <th className="border border-black px-1 py-1 text-center w-12">Tutorial Workload</th>
-              <th className="border border-black px-1 py-1 text-center font-bold w-14">Total Workload</th>
-              <th className="border border-black px-1 py-1 text-center font-bold w-14">Total Periods</th>
+              <th className="border border-black px-1 py-1 text-center w-14">Theory Workload</th>
+              <th className="border border-black px-1 py-1 text-center w-14">Lab Workload</th>
+              <th className="border border-black px-1 py-1 text-center w-14">Tutorial Workload</th>
+              <th className="border border-black px-1 py-1 text-center font-bold w-16">Total Workload</th>
+              <th className="border border-black px-1 py-1 text-center font-bold w-16">Total Periods</th>
               <th className="border border-black px-1.5 py-1 text-left">Subject / Branch / Periods</th>
             </tr>
           </thead>
@@ -1979,20 +1979,20 @@ export default function App() {
 
               return (
                 <tr key={fac.id || index} className="border-b border-black">
-                  <td className="border border-black px-1 py-0.5 text-center font-bold text-[9.5px]">{index + 1}</td>
-                  <td className="border border-black px-1.5 py-0.5 font-bold text-[9.5px] text-slate-900">{fac.fullName}</td>
-                  <td className="border border-black px-1 py-0.5 text-center font-bold text-[9.5px]">{fac.shortName}</td>
-                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{theoryHours}</td>
-                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{labHours}</td>
-                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{tutHours}</td>
-                  <td className="border border-black px-1 py-0.5 text-center font-extrabold text-[9.5px] text-black">{total}</td>
-                  <td className="border border-black px-1 py-0.5 text-center font-extrabold text-[9.5px] text-black">{total}</td>
-                  <td className="border border-black px-1.5 py-0.5 font-normal text-[9px] leading-[1.15] text-slate-900">
+                  <td className="border border-black px-1 py-1 text-center font-bold text-[8.5pt]">{index + 1}</td>
+                  <td className="border border-black px-1.5 py-1 font-bold text-[8.5pt] text-slate-900 whitespace-nowrap">{fac.fullName}</td>
+                  <td className="border border-black px-1 py-1 text-center font-bold text-[8.5pt] whitespace-nowrap">{fac.shortName}</td>
+                  <td className="border border-black px-1 py-1 text-center text-[8.5pt]">{theoryHours}</td>
+                  <td className="border border-black px-1 py-1 text-center text-[8.5pt]">{labHours}</td>
+                  <td className="border border-black px-1 py-1 text-center text-[8.5pt]">{tutHours}</td>
+                  <td className="border border-black px-1 py-1 text-center font-extrabold text-[8.5pt] text-black">{total}</td>
+                  <td className="border border-black px-1 py-1 text-center font-extrabold text-[8.5pt] text-black">{total}</td>
+                  <td className="border border-black px-1.5 py-1 font-normal text-[8.5pt] leading-snug text-slate-900">
                     {assignments.length === 0 ? (
                       <span>—</span>
                     ) : (
                       assignments.map((line: AssignmentLine, li: number) => (
-                        <div key={li} className="whitespace-normal leading-[1.15]">
+                        <div key={li} className="whitespace-nowrap overflow-hidden text-ellipsis leading-snug">
                           {line.rawText}
                         </div>
                       ))
@@ -2005,24 +2005,24 @@ export default function App() {
         </table>
 
         {/* Executive Summary Bar */}
-        <div className="mt-2 p-1.5 border border-black bg-slate-50 flex items-center justify-between text-[9px] font-bold uppercase">
+        <div className="mt-3 p-2 border border-black bg-slate-50 flex items-center justify-between text-[9.5pt] font-bold uppercase">
           <div>Total Campus Workload: {workloadStats.totalCampusWorkloadHours} Hours / Week</div>
           <div>Peak Workload: {workloadStats.highestWorkload} Hours / Week</div>
           <div>Average Load: ~{workloadStats.averageWorkload} Hours / Faculty</div>
         </div>
 
         {/* Official Signatures Block */}
-        <div className="mt-6 pt-2 border-t border-black grid grid-cols-3 gap-6 text-center text-[9px] font-bold uppercase">
+        <div className="mt-8 pt-3 border-t border-black grid grid-cols-3 gap-6 text-center text-[9.5pt] font-bold uppercase">
           <div>
-            <div className="h-8"></div>
+            <div className="h-10"></div>
             <div className="border-t border-black pt-0.5">Prepared By / Timetable Coordinator</div>
           </div>
           <div>
-            <div className="h-8"></div>
+            <div className="h-10"></div>
             <div className="border-t border-black pt-0.5">Dean Academics</div>
           </div>
           <div>
-            <div className="h-8"></div>
+            <div className="h-10"></div>
             <div className="border-t border-black pt-0.5">Principal / Vice-Chancellor</div>
           </div>
         </div>

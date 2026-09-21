@@ -1904,47 +1904,47 @@ export default function App() {
         </div>
       </footer>
 
-      {/* ================= DEDICATED PRINT-ONLY OFFICIAL REPORT ================= */}
-      <div className="hidden print:block w-full text-black font-sans leading-tight bg-white p-2">
+      {/* ================= DEDICATED PRINT-ONLY OFFICIAL REPORT (A4 PORTRAIT HIGH DENSITY) ================= */}
+      <div className="hidden print:block w-full text-black font-serif leading-tight bg-white p-0">
         {/* Institutional Print Header */}
-        <div className="border-b-4 border-black pb-4 mb-4">
-          <div className="flex items-center justify-between gap-4">
+        <div className="border-b border-black pb-1.5 mb-2">
+          <div className="flex items-center justify-between gap-3">
             <img
               src="/logo.png"
               alt="GVPIHLR Emblem"
-              className="h-20 w-auto object-contain flex-shrink-0"
+              className="h-10 w-auto object-contain flex-shrink-0"
             />
             <div className="text-center flex-1">
-              <div className="text-xs font-black tracking-widest uppercase text-slate-800">
+              <div className="text-[9px] font-black tracking-widest uppercase text-slate-800">
                 GVP – Estd. 1988 | GVPIHLR – Estd. 2026
               </div>
-              <h1 className="text-2xl font-black text-black tracking-wide uppercase font-serif">
+              <h1 className="text-sm font-black text-black tracking-wide uppercase font-serif leading-none">
                 GAYATRI VIDYA PARISHAD
               </h1>
-              <h2 className="text-xl font-extrabold text-black uppercase font-serif">
+              <h2 className="text-xs font-extrabold text-black uppercase font-serif leading-tight">
                 INSTITUTE OF HIGHER LEARNING AND RESEARCH
               </h2>
-              <p className="text-xs font-bold text-slate-700">
+              <p className="text-[9.5px] font-bold text-slate-700 leading-none mt-0.5">
                 (Deemed to be University under Distinct Category under Section 3 of the UGC Act, 1956)
               </p>
-              <p className="text-[11px] text-slate-600 font-semibold">
+              <p className="text-[9px] text-slate-600 font-semibold leading-none">
                 Kommadi, Madhurawada, Visakhapatnam – 530 048, Andhra Pradesh
               </p>
             </div>
-            <div className="text-right text-xs font-bold border-l-2 border-black pl-3 space-y-1">
-              <div>Academic Year: 2026-2027</div>
+            <div className="text-right text-[9px] font-bold border-l border-black pl-2 space-y-0.5">
+              <div>AY: 2026-2027</div>
               <div>Date: {new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
-              <div className="text-[10px] uppercase font-black bg-slate-200 px-2 py-0.5 border border-black rounded inline-block">
+              <div className="text-[8.5px] uppercase font-black bg-slate-100 px-1 py-0.5 border border-black rounded inline-block">
                 Official Record
               </div>
             </div>
           </div>
 
-          <div className="mt-3 pt-2 border-t-2 border-black text-center bg-slate-100 py-2 border-b-2 border-black">
-            <h3 className="text-xl font-black uppercase tracking-wider text-black">
+          <div className="mt-1.5 pt-1 border-t border-black text-center bg-slate-50 py-1 border-b border-black">
+            <h3 className="text-xs font-black uppercase tracking-wider text-black">
               OFFICIAL FACULTY WORKLOAD STATEMENT
             </h3>
-            <div className="flex items-center justify-center gap-6 text-xs font-bold text-slate-900 mt-1">
+            <div className="flex items-center justify-center gap-4 text-[9.5px] font-bold text-slate-900 mt-0.5">
               <span>Filter: <strong className="text-black">{selectedSection === 'ALL' ? 'ALL PROGRAM SECTIONS (UNIVERSITY WIDE)' : `SECTION ${selectedSection}`}</strong></span>
               <span>•</span>
               <span>Tutorial Hours: <strong className="text-black">{includeTutorials ? 'INCLUDED (+1 hr/wk)' : 'EXCLUDED'}</strong></span>
@@ -1954,19 +1954,19 @@ export default function App() {
           </div>
         </div>
 
-        {/* Excel/Word Style High Contrast Dark Border Table (Matches Screenshot 1 Print Report) */}
-        <table className="w-full border-collapse border-2 border-black text-xs font-sans">
+        {/* Compact High Density Print Table (Matches Reference 6-Page PDF Layout) */}
+        <table className="print-table w-full border-collapse border border-black text-[9.5px] font-serif">
           <thead>
-            <tr className="bg-slate-900 text-white font-black uppercase border-b-2 border-black text-xs">
-              <th className="border border-black p-2 text-center w-10">S.No</th>
-              <th className="border border-black p-2 text-left">Faculty Name</th>
-              <th className="border border-black p-2 text-center w-24">Faculty Short Name</th>
-              <th className="border border-black p-2 text-center w-16">Theory Workload</th>
-              <th className="border border-black p-2 text-center w-16">Lab Workload</th>
-              <th className="border border-black p-2 text-center w-16">Tutorial Workload</th>
-              <th className="border border-black p-2 text-center font-black w-20 bg-slate-950 text-white">Total Workload</th>
-              <th className="border border-black p-2 text-center font-black w-20 bg-slate-950 text-white">Total Periods</th>
-              <th className="border border-black p-2 text-left">Subject / Branch / Periods</th>
+            <tr className="bg-slate-100 text-black font-bold uppercase border-b border-black text-[9px]">
+              <th className="border border-black px-1 py-1 text-center w-8">S.No</th>
+              <th className="border border-black px-1.5 py-1 text-left">Faculty Name</th>
+              <th className="border border-black px-1 py-1 text-center w-20">Faculty Short Name</th>
+              <th className="border border-black px-1 py-1 text-center w-12">Theory Workload</th>
+              <th className="border border-black px-1 py-1 text-center w-12">Lab Workload</th>
+              <th className="border border-black px-1 py-1 text-center w-12">Tutorial Workload</th>
+              <th className="border border-black px-1 py-1 text-center font-bold w-14">Total Workload</th>
+              <th className="border border-black px-1 py-1 text-center font-bold w-14">Total Periods</th>
+              <th className="border border-black px-1.5 py-1 text-left">Subject / Branch / Periods</th>
             </tr>
           </thead>
           <tbody>
@@ -1978,21 +1978,21 @@ export default function App() {
               const total = selectedSection !== 'ALL' ? fac.calculatedSectionTotal : fac.calculatedOverallTotal;
 
               return (
-                <tr key={fac.id || index} className={index % 2 === 1 ? 'bg-slate-100/70' : 'bg-white'}>
-                  <td className="border border-black p-2 text-center font-bold text-xs">{index + 1}</td>
-                  <td className="border border-black p-2 font-black text-xs text-slate-900">{fac.fullName}</td>
-                  <td className="border border-black p-2 text-center font-extrabold text-xs">{fac.shortName}</td>
-                  <td className="border border-black p-2 text-center font-bold text-xs">{theoryHours}</td>
-                  <td className="border border-black p-2 text-center font-bold text-xs">{labHours}</td>
-                  <td className="border border-black p-2 text-center font-bold text-xs">{tutHours}</td>
-                  <td className="border border-black p-2 text-center font-black text-xs text-black bg-amber-50">{total}</td>
-                  <td className="border border-black p-2 text-center font-black text-xs text-black bg-amber-50">{total}</td>
-                  <td className="border border-black p-2 font-medium text-[11px] leading-snug text-slate-900">
+                <tr key={fac.id || index} className="border-b border-black">
+                  <td className="border border-black px-1 py-0.5 text-center font-bold text-[9.5px]">{index + 1}</td>
+                  <td className="border border-black px-1.5 py-0.5 font-bold text-[9.5px] text-slate-900">{fac.fullName}</td>
+                  <td className="border border-black px-1 py-0.5 text-center font-bold text-[9.5px]">{fac.shortName}</td>
+                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{theoryHours}</td>
+                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{labHours}</td>
+                  <td className="border border-black px-1 py-0.5 text-center text-[9.5px]">{tutHours}</td>
+                  <td className="border border-black px-1 py-0.5 text-center font-extrabold text-[9.5px] text-black">{total}</td>
+                  <td className="border border-black px-1 py-0.5 text-center font-extrabold text-[9.5px] text-black">{total}</td>
+                  <td className="border border-black px-1.5 py-0.5 font-normal text-[9px] leading-[1.15] text-slate-900">
                     {assignments.length === 0 ? (
                       <span>—</span>
                     ) : (
                       assignments.map((line: AssignmentLine, li: number) => (
-                        <div key={li} className="whitespace-normal">
+                        <div key={li} className="whitespace-normal leading-[1.15]">
                           {line.rawText}
                         </div>
                       ))
@@ -2005,25 +2005,25 @@ export default function App() {
         </table>
 
         {/* Executive Summary Bar */}
-        <div className="mt-4 p-3 border-2 border-black bg-slate-100 flex items-center justify-between text-xs font-black uppercase">
+        <div className="mt-2 p-1.5 border border-black bg-slate-50 flex items-center justify-between text-[9px] font-bold uppercase">
           <div>Total Campus Workload: {workloadStats.totalCampusWorkloadHours} Hours / Week</div>
           <div>Peak Workload: {workloadStats.highestWorkload} Hours / Week</div>
           <div>Average Load: ~{workloadStats.averageWorkload} Hours / Faculty</div>
         </div>
 
         {/* Official Signatures Block */}
-        <div className="mt-12 pt-6 border-t-2 border-black grid grid-cols-3 gap-8 text-center text-xs font-black uppercase">
+        <div className="mt-6 pt-2 border-t border-black grid grid-cols-3 gap-6 text-center text-[9px] font-bold uppercase">
           <div>
-            <div className="h-12"></div>
-            <div className="border-t-2 border-black pt-1">Prepared By / Timetable Coordinator</div>
+            <div className="h-8"></div>
+            <div className="border-t border-black pt-0.5">Prepared By / Timetable Coordinator</div>
           </div>
           <div>
-            <div className="h-12"></div>
-            <div className="border-t-2 border-black pt-1">Dean Academics</div>
+            <div className="h-8"></div>
+            <div className="border-t border-black pt-0.5">Dean Academics</div>
           </div>
           <div>
-            <div className="h-12"></div>
-            <div className="border-t-2 border-black pt-1">Principal / Vice-Chancellor</div>
+            <div className="h-8"></div>
+            <div className="border-t border-black pt-0.5">Principal / Vice-Chancellor</div>
           </div>
         </div>
       </div>
